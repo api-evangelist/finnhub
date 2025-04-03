@@ -5,7 +5,9 @@ apis:
   - aid: finnhub:finnhub
     name: Finnhub
     tags:
-      - API
+      - Financial
+      - Stocks
+      - Market Data
     humanURL: https://finnhub.io/docs/api
     properties:
       - url: https://finnhub.io/docs/api
@@ -22,7 +24,9 @@ apis:
       comparison.
 name: Finnhub
 tags:
-  - API
+  - Financial
+  - Stocks
+  - Market Data
 type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party

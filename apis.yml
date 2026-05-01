@@ -5,11 +5,11 @@ description: >-
   FREE realtime API for stocks, forex and cryptocurrency. With this API, you can
   access realtime market data from stock exchanges, 10 forex brokers, and 15+
   crypto exchanges.
-type: Index
+type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 created: '2025-02-08'
-modified: '2026-03-16'
+modified: '2026-04-28'
 position: Consumer
 tags:
   - Financial
@@ -30,9 +30,14 @@ apis:
     properties:
       - url: https://finnhub.io/docs/api
         type: Documentation
+      - url: https://github.com/Finnhub-Stock-API
+        type: GitHubOrg
+      - url: https://finnhub.io/docs/api/websocket-trades
+        type: WebSocket
     description: >-
-      With the sole mission of democratizing financial data, we are proud to
-      offer a FREE realtime API for stocks, forex and cryptocurrency.
+      With the sole mission of democratizing financial data, Finnhub offers a
+      realtime REST API for stocks, forex, and cryptocurrency, including market
+      data, company fundamentals, economic data, and alternative datasets.
 common:
   - type: Website
     url: https://finnhub.io/

@@ -1,48 +1,51 @@
 # Finnhub (finnhub)
-With the sole mission of democratizing financial data, we are proud to offer a FREE realtime API for stocks, forex and cryptocurrency. With this API, you can access realtime market data from stock exchanges, 10 forex brokers, and 15+ crypto exchanges. We also provide institutional-grade alternative and fundamental data for global companies through our stock API. We make use of state-of-the-art machine learning algorithms to collect, clean, and standardize data across global markets. See why Finnhub is the leader in financial data APIs with this stock APIs comparison.
+With the sole mission of democratizing financial data, Finnhub offers a realtime REST API for stocks, forex, and cryptocurrency. The API exposes market data from stock exchanges, 10 forex brokers, and 15+ crypto exchanges, plus institutional-grade alternative and fundamental data for global companies. Finnhub uses machine learning to collect, clean, and standardize data across global markets.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/finnhub/refs/heads/main/apis.yml)
 
 ## Scope
 
-- **Type:** Contract 
-- **Position:** Consuming 
-- **Access:** 3rd-Party 
+- **Type:** Contract
+- **Position:** Consumer
+- **Access:** 3rd-Party
 
 ## Tags:
 
- - Financial, Stocks, Market Data
+ - Financial, Market Data, Stocks
 
 ## Timestamps
 
-- **Created:** 2025-02-08 
-- **Modified:** 2025-04-02 
+- **Created:** 2025-02-08
+- **Modified:** 2026-04-28
 
 ## APIs
 
 ### Finnhub
-With the sole mission of democratizing financial data, we are proud to offer a FREE realtime API for stocks, forex and cryptocurrency. With this API, you can access realtime market data from stock exchanges, 10 forex brokers, and 15+ crypto exchanges. We also provide institutional-grade alternative and fundamental data for global companies through our stock API. We make use of state-of-the-art machine learning algorithms to collect, clean, and standardize data across global markets. See why Finnhub is the leader in financial data APIs with this stock APIs comparison.
+With the sole mission of democratizing financial data, Finnhub offers a realtime REST API for stocks, forex, and cryptocurrency, including market data, company fundamentals, economic data, and alternative datasets.
 
 **Human URL:** [https://finnhub.io/docs/api](https://finnhub.io/docs/api)
 
+**Base URL:** `https://finnhub.io/api/v1`
 
 #### Tags:
 
- - Financial, Stocks, Market Data
+ - Financial, Market Data, Stocks
 
 #### Properties
 
 - [Documentation](https://finnhub.io/docs/api)
+- [GitHub Org](https://github.com/Finnhub-Stock-API)
+- [WebSocket](https://finnhub.io/docs/api/websocket-trades)
 
 ## Common Properties
 
 - [Website](https://finnhub.io/)
 - [Documentation](https://finnhub.io/docs/api)
 - [Pricing](https://finnhub.io/pricing)
+- [Sign Up](https://finnhub.io/register)
 
 ## Maintainers
 
 **FN:** Kin Lane
 
-**Email:** info@apievangelist.com
-
+**Email:** kin@apievangelist.com

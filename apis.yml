@@ -5,7 +5,7 @@ description: >-
   FREE realtime API for stocks, forex and cryptocurrency. With this API, you can
   access realtime market data from stock exchanges, 10 forex brokers, and 15+
   crypto exchanges.
-type: Contract
+kind: contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 created: '2025-02-08'
@@ -45,7 +45,7 @@ common:
     url: https://finnhub.io/docs/api
   - type: Pricing
     url: https://finnhub.io/pricing
-  - type: Sign Up
+  - type: SignUp
     url: https://finnhub.io/register
 maintainers:
   - FN: Kin Lane

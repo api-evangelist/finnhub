@@ -39,6 +39,8 @@ apis:
       realtime REST API for stocks, forex, and cryptocurrency, including market
       data, company fundamentals, economic data, and alternative datasets.
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/finnhub
   - type: Website
     url: https://finnhub.io/
   - type: Documentation

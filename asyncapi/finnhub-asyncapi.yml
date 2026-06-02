@@ -1,0 +1,515 @@
+asyncapi: 2.6.0
+info:
+  title: Finnhub WebSocket API
+  version: 1.0.0
+  description: >
+    AsyncAPI specification for Finnhub's real-time streaming WebSocket APIs.
+    A single WebSocket endpoint (wss://ws.finnhub.io) multiplexes three
+    documented streams selected by the envelope `type` field on each
+    subscribe/unsubscribe message:
+
+      * Trades - real-time last-price updates for US stocks (IEX), LSE, Forex
+        and Crypto. Some FX/crypto exchanges send price updates with
+        `volume = 0` instead of trades. One API key supports one open
+        connection at a time.
+      * News - real-time news for US and Canadian stocks (Premium).
+      * Press Releases - real-time press releases for global companies
+        (Enterprise).
+
+    Authentication: pass the Finnhub API key as the `token` query parameter
+    when opening the WebSocket connection
+    (`wss://ws.finnhub.io?token={apiKey}`).
+
+    Source: https://finnhub.io/docs/api/websocket-trades,
+    https://finnhub.io/docs/api/websocket-news,
+    https://finnhub.io/docs/api/websocket-press-releases
+  contact:
+    name: Finnhub Support
+    url: https://finnhub.io/docs/api
+    email: support@finnhub.io
+  license:
+    name: Apache-2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+
+servers:
+  production:
+    url: ws.finnhub.io
+    protocol: wss
+    description: Finnhub real-time streaming WebSocket endpoint.
+    variables:
+      apiKey:
+        description: >
+          Finnhub API key passed as the `token` query parameter on connect:
+          `wss://ws.finnhub.io?token={apiKey}`.
+        default: your-api-key
+
+defaultContentType: application/json
+
+channels:
+  /:
+    description: >
+      The single Finnhub WebSocket endpoint. Clients send subscribe /
+      unsubscribe envelopes to select streams; the server pushes trade,
+      news, and press-release messages on the same channel, distinguished
+      by the top-level `type` field.
+    bindings:
+      ws:
+        bindingVersion: 0.1.0
+        query:
+          type: object
+          required:
+            - token
+          properties:
+            token:
+              type: string
+              description: Finnhub API key.
+    publish:
+      operationId: sendControlMessage
+      summary: Send subscribe / unsubscribe control messages.
+      description: >
+        Subscribe to or unsubscribe from a specific symbol on one of the
+        three streams. The `type` field selects both the action and the
+        stream (`subscribe` / `unsubscribe` for trades,
+        `subscribe-news` / `unsubscribe-news` for news,
+        `subscribe-pr` / `unsubscribe-pr` for press releases).
+      message:
+        oneOf:
+          - $ref: '#/components/messages/SubscribeTrade'
+          - $ref: '#/components/messages/UnsubscribeTrade'
+          - $ref: '#/components/messages/SubscribeNews'
+          - $ref: '#/components/messages/UnsubscribeNews'
+          - $ref: '#/components/messages/SubscribePressRelease'
+          - $ref: '#/components/messages/UnsubscribePressRelease'
+    subscribe:
+      operationId: receiveStreamMessage
+      summary: Receive trade, news, and press-release stream messages.
+      description: >
+        After subscribing, the server pushes messages for each stream the
+        client has joined. Each message has a top-level `type` field
+        (`trade`, `news`, or `pr`) and a `data` array.
+      message:
+        oneOf:
+          - $ref: '#/components/messages/TradeMessage'
+          - $ref: '#/components/messages/NewsMessage'
+          - $ref: '#/components/messages/PressReleaseMessage'
+          - $ref: '#/components/messages/PingMessage'
+
+components:
+  messages:
+    SubscribeTrade:
+      name: subscribeTrade
+      title: Subscribe to trades stream
+      summary: >
+        Subscribe to real-time trades / last-price updates for a US stock,
+        LSE symbol, forex pair, or crypto pair.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/SubscribeTradeEnvelope'
+      examples:
+        - name: subscribeAAPL
+          summary: Subscribe to AAPL trades.
+          payload:
+            type: subscribe
+            symbol: AAPL
+        - name: subscribeBTC
+          summary: Subscribe to Binance BTC/USDT trades.
+          payload:
+            type: subscribe
+            symbol: BINANCE:BTCUSDT
+        - name: subscribeFX
+          summary: Subscribe to an IC Markets forex pair.
+          payload:
+            type: subscribe
+            symbol: 'IC MARKETS:1'
+
+    UnsubscribeTrade:
+      name: unsubscribeTrade
+      title: Unsubscribe from trades stream
+      summary: Unsubscribe from real-time trades for a symbol.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/UnsubscribeTradeEnvelope'
+      examples:
+        - name: unsubscribeAAPL
+          payload:
+            type: unsubscribe
+            symbol: AAPL
+
+    SubscribeNews:
+      name: subscribeNews
+      title: Subscribe to news stream
+      summary: >
+        Subscribe to real-time news for a US or Canadian stock. Requires
+        Premium access.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/SubscribeNewsEnvelope'
+      examples:
+        - name: subscribeNewsAAPL
+          payload:
+            type: subscribe-news
+            symbol: AAPL
+
+    UnsubscribeNews:
+      name: unsubscribeNews
+      title: Unsubscribe from news stream
+      summary: Unsubscribe from real-time news for a symbol.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/UnsubscribeNewsEnvelope'
+      examples:
+        - name: unsubscribeNewsAAPL
+          payload:
+            type: unsubscribe-news
+            symbol: AAPL
+
+    SubscribePressRelease:
+      name: subscribePressRelease
+      title: Subscribe to press releases stream
+      summary: >
+        Subscribe to real-time press releases for a company. Requires
+        Enterprise access.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/SubscribePressReleaseEnvelope'
+      examples:
+        - name: subscribePrAAPL
+          payload:
+            type: subscribe-pr
+            symbol: AAPL
+
+    UnsubscribePressRelease:
+      name: unsubscribePressRelease
+      title: Unsubscribe from press releases stream
+      summary: Unsubscribe from real-time press releases for a symbol.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/UnsubscribePressReleaseEnvelope'
+      examples:
+        - name: unsubscribePrAAPL
+          payload:
+            type: unsubscribe-pr
+            symbol: AAPL
+
+    TradeMessage:
+      name: tradeMessage
+      title: Trades message
+      summary: >
+        Real-time trade / last-price update message. `data` may contain
+        multiple trades. For exchanges that do not stream trades, a price
+        update is sent with `v = 0`.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/TradeMessage'
+      examples:
+        - name: tradeBTC
+          summary: Sample trade message from the docs.
+          payload:
+            type: trade
+            data:
+              - s: BINANCE:BTCUSDT
+                p: 7296.89
+                t: 1575526691134
+                v: 0.011467
+
+    NewsMessage:
+      name: newsMessage
+      title: News message
+      summary: Real-time news message for subscribed US/Canadian stocks.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/NewsMessage'
+      examples:
+        - name: newsSample
+          summary: Sample news message from the docs.
+          payload:
+            type: news
+            data:
+              - category: company
+                datetime: 1679920200
+                headline: >-
+                  CanAlaska Uranium Announces Airborne Electromagnetic
+                  Survey Completed at Geikie Project in Athabasca Basin
+                id: 119440189
+                image: https://media.zenfs.com/en/newsfile_64/0522ee5d9e134e6f966c6ecdfc50fb46
+                related: CVVUF
+                source: Yahoo
+                summary: >-
+                  Multiple Priority Targets Associated with Regional Scale
+                  Fault Structures...
+                url: https://finance.yahoo.com/news/canalaska-uranium-announces-airborne-electromagnetic-123000318.html
+
+    PressReleaseMessage:
+      name: pressReleaseMessage
+      title: Press release message
+      summary: Real-time press release message for subscribed companies.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PressReleaseMessage'
+      examples:
+        - name: prSample
+          summary: Sample press release message from the docs.
+          payload:
+            type: pr
+            data:
+              - datetime: 1637696940
+                fullText: https://static2.finnhub.io/file/publicdatany/pr/0eb7fb4118ec53204755719b4cc4d57e9370d3caa2fa15d5e7a8f3b4d99cc881.html
+                headline: >-
+                  STOCKHOLDER ALERT: Monteverde & Associates PC Continues
+                  to Investigate the Following Merger
+                symbol: 'PAE,ZIXI,KRA'
+                url: https://finnhub.io/api/press-releases?id=0eb7fb4118ec53204755719b4cc4d57e9370d3caa2fa15d5e7a8f3b4d99cc881
+
+    PingMessage:
+      name: pingMessage
+      title: Server ping
+      summary: >
+        Heartbeat ping sent by the server to keep idle connections alive.
+        Carries no `data` payload.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PingMessage'
+      examples:
+        - name: ping
+          payload:
+            type: ping
+
+  schemas:
+    # ---- Control envelopes ----
+    SubscribeTradeEnvelope:
+      type: object
+      required:
+        - type
+        - symbol
+      properties:
+        type:
+          type: string
+          const: subscribe
+          description: Subscribe action for the trades stream.
+        symbol:
+          type: string
+          description: >
+            Symbol to subscribe to. Examples: `AAPL` (US stock),
+            `BINANCE:BTCUSDT` (crypto pair on Binance),
+            `IC MARKETS:1` (forex pair on IC Markets).
+
+    UnsubscribeTradeEnvelope:
+      type: object
+      required:
+        - type
+        - symbol
+      properties:
+        type:
+          type: string
+          const: unsubscribe
+          description: Unsubscribe action for the trades stream.
+        symbol:
+          type: string
+          description: Symbol to unsubscribe from.
+
+    SubscribeNewsEnvelope:
+      type: object
+      required:
+        - type
+        - symbol
+      properties:
+        type:
+          type: string
+          const: subscribe-news
+          description: Subscribe action for the news stream.
+        symbol:
+          type: string
+          description: US or Canadian stock symbol to receive news for.
+
+    UnsubscribeNewsEnvelope:
+      type: object
+      required:
+        - type
+        - symbol
+      properties:
+        type:
+          type: string
+          const: unsubscribe-news
+        symbol:
+          type: string
+
+    SubscribePressReleaseEnvelope:
+      type: object
+      required:
+        - type
+        - symbol
+      properties:
+        type:
+          type: string
+          const: subscribe-pr
+          description: Subscribe action for the press releases stream.
+        symbol:
+          type: string
+          description: Stock symbol to receive press releases for.
+
+    UnsubscribePressReleaseEnvelope:
+      type: object
+      required:
+        - type
+        - symbol
+      properties:
+        type:
+          type: string
+          const: unsubscribe-pr
+        symbol:
+          type: string
+
+    # ---- Server-pushed messages ----
+    TradeMessage:
+      type: object
+      required:
+        - type
+        - data
+      properties:
+        type:
+          type: string
+          const: trade
+          description: Message type.
+        data:
+          type: array
+          description: List of trades or price updates.
+          items:
+            $ref: '#/components/schemas/Trade'
+
+    Trade:
+      type: object
+      description: A single trade or price update.
+      required:
+        - s
+        - p
+        - t
+        - v
+      properties:
+        s:
+          type: string
+          description: Symbol.
+        p:
+          type: number
+          format: float
+          description: Last price.
+        t:
+          type: integer
+          format: int64
+          description: UNIX milliseconds timestamp.
+        v:
+          type: number
+          format: float
+          description: >
+            Volume. For exchanges that do not stream trades, a price update
+            is sent with `v = 0`.
+        c:
+          type: array
+          description: >
+            List of trade condition codes. A comprehensive list is
+            published by Finnhub at
+            https://docs.google.com/spreadsheets/d/1PUxiSWPHSODbaTaoL2Vef6DgU-yFtlRGZf19oBb9Hp0/edit?usp=sharing
+          items:
+            type: string
+
+    NewsMessage:
+      type: object
+      required:
+        - type
+        - data
+      properties:
+        type:
+          type: string
+          const: news
+          description: Message type.
+        data:
+          type: array
+          description: List of news items.
+          items:
+            $ref: '#/components/schemas/NewsItem'
+
+    NewsItem:
+      type: object
+      description: A single news article.
+      properties:
+        category:
+          type: string
+          description: News category.
+        datetime:
+          type: integer
+          format: int64
+          description: Published time in UNIX timestamp (seconds).
+        headline:
+          type: string
+          description: News headline.
+        id:
+          type: integer
+          format: int64
+          description: News ID.
+        image:
+          type: string
+          format: uri
+          description: Thumbnail image URL.
+        related:
+          type: string
+          description: Related stocks and companies mentioned in the article.
+        source:
+          type: string
+          description: News source.
+        summary:
+          type: string
+          description: News summary.
+        url:
+          type: string
+          format: uri
+          description: URL of the original article.
+
+    PressReleaseMessage:
+      type: object
+      required:
+        - type
+        - data
+      properties:
+        type:
+          type: string
+          const: pr
+          description: Message type.
+        data:
+          type: array
+          description: List of press release items.
+          items:
+            $ref: '#/components/schemas/PressReleaseItem'
+
+    PressReleaseItem:
+      type: object
+      description: A single press release.
+      properties:
+        datetime:
+          type: integer
+          format: int64
+          description: Published time in UNIX timestamp (seconds).
+        headline:
+          type: string
+          description: Press release headline.
+        symbol:
+          type: string
+          description: >
+            Related stocks and companies mentioned in the press release
+            (comma-separated tickers).
+        fullText:
+          type: string
+          format: uri
+          description: URL to download the full-text data.
+        url:
+          type: string
+          format: uri
+          description: URL to read the article.
+
+    PingMessage:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          const: ping
+          description: Server heartbeat.

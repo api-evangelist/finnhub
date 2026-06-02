@@ -9,7 +9,7 @@ kind: contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 created: '2025-02-08'
-modified: '2026-04-28'
+modified: '2026-05-29'
 position: Consumer
 tags:
   - Financial
@@ -34,6 +34,9 @@ apis:
         type: GitHubOrg
       - url: https://finnhub.io/docs/api/websocket-trades
         type: WebSocket
+      - url: >-
+          https://raw.githubusercontent.com/api-evangelist/finnhub/refs/heads/main/asyncapi/finnhub-asyncapi.yml
+        type: AsyncAPI
     description: >-
       With the sole mission of democratizing financial data, Finnhub offers a
       realtime REST API for stocks, forex, and cryptocurrency, including market

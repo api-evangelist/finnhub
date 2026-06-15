@@ -1,0 +1,360 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Finnhub API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Symbol lookup",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://finnhub.io/api/v1/search",
+        "params": [
+          {
+            "name": "q",
+            "value": "",
+            "type": "query",
+            "description": "Query text (symbol or company name)"
+          },
+          {
+            "name": "exchange",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Symbol lookup"
+    },
+    {
+      "info": {
+        "name": "Stock symbols for an exchange",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://finnhub.io/api/v1/stock/symbol",
+        "params": [
+          {
+            "name": "exchange",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "mic",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "currency",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Stock symbols for an exchange"
+    },
+    {
+      "info": {
+        "name": "Real-time quote",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://finnhub.io/api/v1/quote",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Real-time quote"
+    },
+    {
+      "info": {
+        "name": "Company profile (basic)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://finnhub.io/api/v1/stock/profile2",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "isin",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "cusip",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Company profile (basic)"
+    },
+    {
+      "info": {
+        "name": "Company news",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://finnhub.io/api/v1/company-news",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Company news"
+    },
+    {
+      "info": {
+        "name": "General market news",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://finnhub.io/api/v1/news",
+        "params": [
+          {
+            "name": "category",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "minId",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "General market news"
+    },
+    {
+      "info": {
+        "name": "Stock candles (OHLCV)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://finnhub.io/api/v1/stock/candle",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "resolution",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Stock candles (OHLCV)"
+    },
+    {
+      "info": {
+        "name": "Analyst recommendation trends",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://finnhub.io/api/v1/stock/recommendation",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Analyst recommendation trends"
+    },
+    {
+      "info": {
+        "name": "Peer companies",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://finnhub.io/api/v1/stock/peers",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Peer companies"
+    },
+    {
+      "info": {
+        "name": "Forex symbols for an exchange",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://finnhub.io/api/v1/forex/symbol",
+        "params": [
+          {
+            "name": "exchange",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Forex symbols for an exchange"
+    },
+    {
+      "info": {
+        "name": "Supported forex exchanges",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://finnhub.io/api/v1/forex/exchange"
+      },
+      "docs": "Supported forex exchanges"
+    },
+    {
+      "info": {
+        "name": "Forex candles",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://finnhub.io/api/v1/forex/candle",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "resolution",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Forex candles"
+    },
+    {
+      "info": {
+        "name": "Supported crypto exchanges",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://finnhub.io/api/v1/crypto/exchange"
+      },
+      "docs": "Supported crypto exchanges"
+    },
+    {
+      "info": {
+        "name": "Crypto symbols for an exchange",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://finnhub.io/api/v1/crypto/symbol",
+        "params": [
+          {
+            "name": "exchange",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Crypto symbols for an exchange"
+    },
+    {
+      "info": {
+        "name": "Crypto candles",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://finnhub.io/api/v1/crypto/candle",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "resolution",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Crypto candles"
+    }
+  ],
+  "bundled": true
+}

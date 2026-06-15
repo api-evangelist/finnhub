@@ -1,0 +1,1446 @@
+{
+  "item": [
+    {
+      "id": "7ac69bc3-e692-4d61-af8e-7440dd99b4fd",
+      "name": "Symbol lookup",
+      "request": {
+        "name": "Symbol lookup",
+        "description": {},
+        "url": {
+          "path": [
+            "search"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "q",
+              "value": "<string>",
+              "description": "(Required) Query text (symbol or company name)"
+            },
+            {
+              "disabled": false,
+              "key": "exchange",
+              "value": "<string>"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "76e19675-d405-4519-bbc5-59e7f8dafab6",
+          "name": "Matching securities",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "key": "exchange",
+                  "value": "<string>"
+                },
+                {
+                  "key": "token",
+                  "value": "<API Key>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"count\": 3169\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "13ae464b-091b-449e-822e-8a3257d68980",
+      "name": "Stock symbols for an exchange",
+      "request": {
+        "name": "Stock symbols for an exchange",
+        "description": {},
+        "url": {
+          "path": [
+            "stock",
+            "symbol"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "exchange",
+              "value": "<string>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "mic",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "currency",
+              "value": "<string>"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "b67a2e18-bcf6-4342-ba10-2a0f415773ae",
+          "name": "Symbol list",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "stock",
+                "symbol"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "exchange",
+                  "value": "US"
+                },
+                {
+                  "key": "mic",
+                  "value": "<string>"
+                },
+                {
+                  "key": "currency",
+                  "value": "<string>"
+                },
+                {
+                  "key": "token",
+                  "value": "<API Key>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "f69f0dfe-6b21-4e2f-8c6f-2f359dc1b672",
+      "name": "Real-time quote",
+      "request": {
+        "name": "Real-time quote",
+        "description": {},
+        "url": {
+          "path": [
+            "quote"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "symbol",
+              "value": "<string>",
+              "description": "(Required) "
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "6832acdb-ea99-4197-b707-c261e72efcb6",
+          "name": "Quote payload (c, d, dp, h, l, o, pc, t)",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "quote"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "AAPL"
+                },
+                {
+                  "key": "token",
+                  "value": "<API Key>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "6ced6540-dc8b-4de9-8fd3-430925474915",
+      "name": "Company profile (basic)",
+      "request": {
+        "name": "Company profile (basic)",
+        "description": {},
+        "url": {
+          "path": [
+            "stock",
+            "profile2"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "symbol",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "isin",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "cusip",
+              "value": "<string>"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "cac9ce38-f339-4d63-9f6b-2bcfab37fbc4",
+          "name": "Company profile",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "stock",
+                "profile2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "<string>"
+                },
+                {
+                  "key": "isin",
+                  "value": "<string>"
+                },
+                {
+                  "key": "cusip",
+                  "value": "<string>"
+                },
+                {
+                  "key": "token",
+                  "value": "<API Key>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "cf036aaf-eba7-44f4-968a-18c2344e36bd",
+      "name": "Company news",
+      "request": {
+        "name": "Company news",
+        "description": {},
+        "url": {
+          "path": [
+            "company-news"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "symbol",
+              "value": "<string>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "from",
+              "value": "<date>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "to",
+              "value": "<date>",
+              "description": "(Required) "
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "e8b9d92c-b28c-454a-aec9-56ba6e4d8705",
+          "name": "News items",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "company-news"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "<string>"
+                },
+                {
+                  "key": "from",
+                  "value": "<date>"
+                },
+                {
+                  "key": "to",
+                  "value": "<date>"
+                },
+                {
+                  "key": "token",
+                  "value": "<API Key>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "c7f19d7e-6632-400e-b72e-bf0d9ebc8ba0",
+      "name": "General market news",
+      "request": {
+        "name": "General market news",
+        "description": {},
+        "url": {
+          "path": [
+            "news"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "category",
+              "value": "<string>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "minId",
+              "value": "<integer>"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "536734f6-78c6-4381-acd6-d9507d61c354",
+          "name": "News list",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "news"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "<string>"
+                },
+                {
+                  "key": "minId",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "token",
+                  "value": "<API Key>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "e8304724-00ce-4daf-b7f8-ea8a2c72c551",
+      "name": "Stock candles (OHLCV)",
+      "request": {
+        "name": "Stock candles (OHLCV)",
+        "description": {},
+        "url": {
+          "path": [
+            "stock",
+            "candle"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "symbol",
+              "value": "<string>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "resolution",
+              "value": "<string>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "from",
+              "value": "<long>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "to",
+              "value": "<long>",
+              "description": "(Required) "
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "48497aa1-52f7-47b4-9ef0-731edcaf04c3",
+          "name": "Candle data",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "stock",
+                "candle"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "<string>"
+                },
+                {
+                  "key": "resolution",
+                  "value": "D"
+                },
+                {
+                  "key": "from",
+                  "value": "<long>"
+                },
+                {
+                  "key": "to",
+                  "value": "<long>"
+                },
+                {
+                  "key": "token",
+                  "value": "<API Key>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "62f62b0b-4f5e-440b-b01e-9a33d00aaac9",
+      "name": "Analyst recommendation trends",
+      "request": {
+        "name": "Analyst recommendation trends",
+        "description": {},
+        "url": {
+          "path": [
+            "stock",
+            "recommendation"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "symbol",
+              "value": "<string>",
+              "description": "(Required) "
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "12a7bb6e-c443-468e-b168-dc4f0cba48c6",
+          "name": "Recommendation series",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "stock",
+                "recommendation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "<string>"
+                },
+                {
+                  "key": "token",
+                  "value": "<API Key>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "a9ce7909-2c30-40fe-9d58-5a38b3af24a5",
+      "name": "Peer companies",
+      "request": {
+        "name": "Peer companies",
+        "description": {},
+        "url": {
+          "path": [
+            "stock",
+            "peers"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "symbol",
+              "value": "<string>",
+              "description": "(Required) "
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "e6f7eeb9-3607-46de-8ff7-61982fcfe183",
+          "name": "Peer symbols",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "stock",
+                "peers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "<string>"
+                },
+                {
+                  "key": "token",
+                  "value": "<API Key>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[\n  \"string\",\n  \"string\"\n]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "2b32b061-2e78-4afb-a17d-5a1323fc3b83",
+      "name": "Forex symbols for an exchange",
+      "request": {
+        "name": "Forex symbols for an exchange",
+        "description": {},
+        "url": {
+          "path": [
+            "forex",
+            "symbol"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "exchange",
+              "value": "<string>",
+              "description": "(Required) "
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "2ae126ba-9698-470e-a441-3d1f59de1b97",
+          "name": "Forex symbols",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "forex",
+                "symbol"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "exchange",
+                  "value": "<string>"
+                },
+                {
+                  "key": "token",
+                  "value": "<API Key>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "bb327d58-f544-4ed7-b654-57b1c9ec3a35",
+      "name": "Supported forex exchanges",
+      "request": {
+        "name": "Supported forex exchanges",
+        "description": {},
+        "url": {
+          "path": [
+            "forex",
+            "exchange"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "b208aef1-621e-4d9e-a55c-f7feb96959a8",
+          "name": "Exchange list",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "forex",
+                "exchange"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "token",
+                  "value": "<API Key>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[\n  \"string\",\n  \"string\"\n]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "db73e2b2-8423-4b38-aeef-c6d7bd9b0fe6",
+      "name": "Forex candles",
+      "request": {
+        "name": "Forex candles",
+        "description": {},
+        "url": {
+          "path": [
+            "forex",
+            "candle"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "symbol",
+              "value": "<string>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "resolution",
+              "value": "<string>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "from",
+              "value": "<long>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "to",
+              "value": "<long>",
+              "description": "(Required) "
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "3f05f40e-c562-407b-98de-605aec0d523a",
+          "name": "Candle data",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "forex",
+                "candle"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "<string>"
+                },
+                {
+                  "key": "resolution",
+                  "value": "<string>"
+                },
+                {
+                  "key": "from",
+                  "value": "<long>"
+                },
+                {
+                  "key": "to",
+                  "value": "<long>"
+                },
+                {
+                  "key": "token",
+                  "value": "<API Key>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "bb855afa-71ba-4013-9e47-187ef935929c",
+      "name": "Supported crypto exchanges",
+      "request": {
+        "name": "Supported crypto exchanges",
+        "description": {},
+        "url": {
+          "path": [
+            "crypto",
+            "exchange"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "b2dd1ca5-a555-4e4b-babf-d9d8e3a77470",
+          "name": "Exchange list",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "crypto",
+                "exchange"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "token",
+                  "value": "<API Key>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[\n  \"string\",\n  \"string\"\n]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "2762ebb1-31ee-49dd-8a83-5559b1d1e04e",
+      "name": "Crypto symbols for an exchange",
+      "request": {
+        "name": "Crypto symbols for an exchange",
+        "description": {},
+        "url": {
+          "path": [
+            "crypto",
+            "symbol"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "exchange",
+              "value": "<string>",
+              "description": "(Required) "
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "ec5a79ce-d998-4f01-b97b-c9bd6e122b5d",
+          "name": "Crypto symbols",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "crypto",
+                "symbol"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "exchange",
+                  "value": "<string>"
+                },
+                {
+                  "key": "token",
+                  "value": "<API Key>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "5d217faf-c72f-48fa-b4f9-a658bed5770d",
+      "name": "Crypto candles",
+      "request": {
+        "name": "Crypto candles",
+        "description": {},
+        "url": {
+          "path": [
+            "crypto",
+            "candle"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "symbol",
+              "value": "<string>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "resolution",
+              "value": "<string>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "from",
+              "value": "<long>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "to",
+              "value": "<long>",
+              "description": "(Required) "
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "dddd3046-7a8b-4fc4-a7ae-7fd6e0bc5797",
+          "name": "Candle data",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "crypto",
+                "candle"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "<string>"
+                },
+                {
+                  "key": "resolution",
+                  "value": "<string>"
+                },
+                {
+                  "key": "from",
+                  "value": "<long>"
+                },
+                {
+                  "key": "to",
+                  "value": "<long>"
+                },
+                {
+                  "key": "token",
+                  "value": "<API Key>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://finnhub.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f7a29841-438c-4332-8455-26f77c9358b6",
+    "name": "Finnhub API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Free realtime APIs for stocks, forex, and cryptocurrency, plus company fundamentals, economic data, and alternative data. All endpoints require an API token passed via the `token` query parameter (or `X-Finnhub-Token` header).\n\nContact Support:\n Name: Finnhub",
+      "type": "text/plain"
+    }
+  }
+}

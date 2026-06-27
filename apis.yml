@@ -50,7 +50,7 @@ common:
     url: https://finnhub.io/docs/api
   - type: Pricing
     url: https://finnhub.io/pricing
-  - type: SignUp
+  - type: Signup
     url: https://finnhub.io/register
 maintainers:
   - FN: Kin Lane

@@ -1,0 +1,22 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/finnhub-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+  - query
+schemes:
+- name: tokenQuery
+  type: apiKey
+  in: query
+  parameter: token
+  sources:
+  - openapi/finnhub-openapi.yml
+- name: tokenHeader
+  type: apiKey
+  in: header
+  parameter: X-Finnhub-Token
+  sources:
+  - openapi/finnhub-openapi.yml

@@ -42,6 +42,8 @@ apis:
       realtime REST API for stocks, forex, and cryptocurrency, including market
       data, company fundamentals, economic data, and alternative datasets.
 common:
+  - type: AgenticAccess
+    url: agentic-access/finnhub-agentic-access.yml
   - type: DomainSecurity
     url: security/finnhub-domain-security.yml
   - type: Authentication

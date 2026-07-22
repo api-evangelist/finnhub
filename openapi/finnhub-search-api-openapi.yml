@@ -1,0 +1,59 @@
+openapi: 3.1.0
+info:
+  title: Finnhub Company News Search API
+  description: Free realtime APIs for stocks, forex, and cryptocurrency, plus company fundamentals, economic data, and alternative data. All endpoints require an API token passed via the `token` query parameter (or `X-Finnhub-Token` header).
+  version: '1.0'
+  contact:
+    name: Finnhub
+    url: https://finnhub.io/docs/api
+servers:
+- url: https://finnhub.io/api/v1
+  description: Production
+security:
+- tokenQuery: []
+- tokenHeader: []
+tags:
+- name: Search
+paths:
+  /search:
+    get:
+      summary: Symbol lookup
+      operationId: symbolSearch
+      parameters:
+      - name: q
+        in: query
+        required: true
+        description: Query text (symbol or company name)
+        schema:
+          type: string
+      - name: exchange
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Matching securities
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  result:
+                    type: array
+                    items:
+                      type: object
+      tags:
+      - Search
+components:
+  securitySchemes:
+    tokenQuery:
+      type: apiKey
+      in: query
+      name: token
+    tokenHeader:
+      type: apiKey
+      in: header
+      name: X-Finnhub-Token

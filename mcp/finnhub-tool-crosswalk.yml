@@ -1,0 +1,86 @@
+generated: '2026-07-22'
+method: derived
+source: https://github.com/cyanheads/finnhub-mcp-server (README tool list) + openapi/finnhub-swagger-original.json
+notes: >-
+  Binds the community MCP server's six tools (io.github.cyanheads/
+  finnhub-mcp-server, listed in the official MCP registry — not first-party)
+  to the operationIds in Finnhub's official Swagger 2.0 spec. The server is
+  open source, so tool semantics come from its published README/definitions;
+  the live tools/list was not introspected (stdio/self-hosted server, no
+  hosted endpoint). Every referenced operationId exists verbatim in the spec.
+surfaces:
+  openapi: openapi/finnhub-swagger-original.json
+  graphql: null
+  mcp:
+    server: io.github.cyanheads/finnhub-mcp-server
+    package: '@cyanheads/finnhub-mcp-server'
+    transports: [stdio, streamable-http]
+    hosted: false
+    note: self-hosted community server; requires FINNHUB_API_KEY
+crosswalk:
+  - tool: finnhub_search_symbols
+    category: symbols
+    rest: [symbol-search]
+    binding: rest
+    confidence: high
+  - tool: finnhub_get_quote
+    category: quotes
+    rest: [quote, market-status]
+    binding: rest
+    confidence: high
+    note: composite — pairs the quote with live market-status so stale prices are flagged
+  - tool: finnhub_get_company
+    category: company
+    rest: [company-profile2, company-basic-financials, company-peers]
+    binding: rest
+    confidence: high
+    note: deliberate composite — profile + headline fundamentals + sector peers in one call
+  - tool: finnhub_get_earnings
+    category: earnings
+    rest: [company-earnings, earnings-calendar]
+    binding: rest
+    confidence: high
+    note: mode 'history' -> company-earnings; mode 'calendar' -> earnings-calendar
+  - tool: finnhub_get_news
+    category: news
+    rest: [company-news, market-news]
+    binding: rest
+    confidence: high
+    note: mode 'company' -> company-news; mode 'market' -> market-news
+  - tool: finnhub_get_recommendations
+    category: analysts
+    rest: [recommendation-trends]
+    binding: rest
+    confidence: high
+mcp_only: []
+rest_only:
+  - capability: market data (candles/tick/nbbo/bid-ask)
+    operations: [stock-candles, stock-tick, stock-nbbo, stock-bidask]
+  - capability: forex
+    operations: [forex-exchanges, forex-symbols, forex-candles, forex-rates]
+  - capability: crypto
+    operations: [crypto-exchanges, crypto-symbols, crypto-profile, crypto-candles]
+  - capability: fundamentals and estimates
+    operations: [financials, financials-reported, revenue-breakdown, sector-metric,
+      company-revenue-estimates, company-eps-estimates, company-ebitda-estimates,
+      company-ebit-estimates, price-target, upgrade-downgrade]
+  - capability: ownership and insiders
+    operations: [ownership, fund-ownership, institutional-ownership, institutional-portfolio,
+      institutional-profile, insider-transactions, insider-sentiment]
+  - capability: filings and transcripts
+    operations: [filings, filings-sentiment, international-filings, global-filings-search,
+      search-in-filing, transcripts-list, transcripts, stock-presentation]
+  - capability: ETFs, mutual funds, indices, bonds
+    operations: [etfs-profile, etfs-holdings, indices-constituents, mutual-fund-profile,
+      mutual-fund-holdings, bond-profile, bond-price, bond-yield-curve]
+  - capability: alternative data
+    operations: [social-sentiment, stock-uspto-patent, stock-visa-application, stock-lobbying,
+      stock-usa-spending, congressional-trading, supply-chain-relationships, company-esg-score]
+  - capability: economy
+    operations: [country, economic-calendar, economic-code, economic-data]
+coverage:
+  mcp_tools: 6
+  mcp_tools_bound: 6
+  mcp_only: 0
+  rest_operations_total: 117
+  rest_operations_with_tool: 11

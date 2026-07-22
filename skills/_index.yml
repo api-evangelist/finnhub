@@ -1,0 +1,16 @@
+generated: '2026-07-22'
+method: generated
+source: openapi/finnhub-swagger-original.json + conventions/finnhub-conventions.yml
+skills:
+  - file: finnhub-realtime-quote.md
+    name: Get a real-time stock quote
+    api: openapi/finnhub-swagger-original.json
+    operations: [symbol-search, market-status, quote]
+  - file: finnhub-company-research.md
+    name: Research a public company
+    api: openapi/finnhub-swagger-original.json
+    operations: [company-profile2, company-basic-financials, company-peers, recommendation-trends, company-earnings, company-news]
+  - file: finnhub-market-candles.md
+    name: Fetch OHLCV candles across stocks, forex, and crypto
+    api: openapi/finnhub-swagger-original.json
+    operations: [stock-candles, forex-exchanges, forex-symbols, forex-candles, crypto-exchanges, crypto-symbols, crypto-candles]

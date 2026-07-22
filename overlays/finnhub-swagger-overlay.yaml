@@ -1,0 +1,41 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Finnhub API
+  version: 1.0.0
+  description: >-
+    Overlay of API Evangelist enhancements to Finnhub's official Swagger 2.0
+    specification (harvested verbatim from https://finnhub.io/static/swagger.json).
+    The original spec is never mutated; these actions annotate it with catalog
+    cross-links and operational semantics captured elsewhere in this repository.
+extends: openapi/finnhub-swagger-original.json
+x-generated: '2026-07-22'
+x-method: generated
+actions:
+  - target: $.info
+    update:
+      x-apievangelist:
+        provider: finnhub
+        rating: https://apis.io/providers/finnhub/
+        agentic-access: agentic-access/finnhub-agentic-access.yml
+        conventions: conventions/finnhub-conventions.yml
+        errors: errors/finnhub-problem-types.yml
+        asyncapi: asyncapi/finnhub-asyncapi.yml
+        tool-crosswalk: mcp/finnhub-tool-crosswalk.yml
+  - target: $.info
+    update:
+      x-rate-limit: >-
+        On top of each plan's limit there is a hard cap of 30 API calls/second;
+        exceeding a limit returns HTTP 429 (https://finnhub.io/docs/api/rate-limit).
+  - target: $.info
+    update:
+      x-streaming: >-
+        Real-time trades, news, and press releases stream over
+        wss://ws.finnhub.io (see asyncapi/finnhub-asyncapi.yml); one WebSocket
+        connection per API key.
+  - target: $.securityDefinitions
+    update:
+      api_key:
+        x-alternative: >-
+          The same key may be sent as the X-Finnhub-Token request header
+          instead of the token query parameter
+          (https://finnhub.io/docs/api/authentication).

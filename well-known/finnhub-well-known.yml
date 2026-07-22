@@ -1,0 +1,31 @@
+generated: '2026-07-22'
+method: searched
+host: https://finnhub.io
+notes: >-
+  finnhub.io serves an HTML catch-all: every /.well-known/ path returns HTTP
+  200 with the site's HTML shell instead of the discovery document, so none of
+  these documents actually exist. Statuses below record the probe result; no
+  raw files are saved because no valid documents were returned. The real
+  machine-readable surface found during this round is the official Swagger
+  2.0 spec at https://finnhub.io/static/swagger.json (saved to openapi/).
+documents:
+  - path: /.well-known/security.txt
+    status: 200
+    valid: false
+    note: HTML shell (SPA catch-all), not RFC 9116 security.txt
+  - path: /.well-known/openid-configuration
+    status: 200
+    valid: false
+    note: HTML shell, not OIDC discovery JSON
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    valid: false
+    note: HTML shell, not RFC 8414 metadata
+  - path: /.well-known/api-catalog
+    status: 200
+    valid: false
+    note: HTML shell, not an API catalog
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    valid: false
+    note: HTML shell, not a plugin manifest

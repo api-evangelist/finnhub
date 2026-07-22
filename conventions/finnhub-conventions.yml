@@ -1,0 +1,51 @@
+generated: '2026-07-22'
+method: searched
+source: https://finnhub.io/docs/api (Introduction, Authentication, Rate Limits) + openapi/finnhub-swagger-original.json
+authentication:
+  style: api-key
+  locations:
+    - in: query
+      name: token
+    - in: header
+      name: X-Finnhub-Token
+  docs: https://finnhub.io/docs/api/authentication
+  note: same key works in either location; key issued per account via the Dashboard
+  artifact: authentication/finnhub-authentication.yml
+idempotency:
+  supported: false
+  note: >-
+    all 117 documented operations are GET (read-only market/company data), so
+    requests are naturally idempotent, but Finnhub publishes no
+    Idempotency-Key contract and the API has no public write surface
+pagination:
+  style: none
+  note: >-
+    no cursor/offset pagination; time-series endpoints (candles, tick, news)
+    are windowed with `from`/`to` UNIX-timestamp or date parameters, and some
+    references (tick data) use `limit`/`skip` style parameters per endpoint
+field_expansion: none
+metadata: none
+request_tracing:
+  request_id_header: null
+  note: no documented request-id/tracing header
+versioning:
+  scheme: uri-path
+  current: v1
+  base_path: /api/v1
+  artifact: lifecycle/finnhub-lifecycle.yml
+error_envelope:
+  format: plain-json
+  note: standard HTTP response codes; plain JSON bodies (no RFC 9457 problem+json)
+  artifact: errors/finnhub-problem-types.yml
+rate_limiting:
+  breach_status: 429
+  global_cap: 30 requests/second on top of per-plan limits
+  docs: https://finnhub.io/docs/api/rate-limit
+  artifact: rate-limits/finnhub-rate-limits.yml
+media_types:
+  request: application/x-www-form-urlencoded (form-encoded), though the public surface is GET query parameters
+  response: application/json
+streaming:
+  websocket: wss://ws.finnhub.io?token={apiKey}
+  note: one open connection per API key; subscribe/unsubscribe envelopes select trade/news/press-release streams
+  artifact: asyncapi/finnhub-asyncapi.yml

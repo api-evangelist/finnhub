@@ -1,0 +1,23 @@
+generated: '2026-07-22'
+method: searched
+source: https://finnhub.io/docs/api + site probes
+versioning:
+  scheme: uri-path
+  current: v1
+  base_path: /api/v1
+  docs: https://finnhub.io/docs/api
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: no published deprecation policy or RFC 8594 Sunset-header support found
+sla:
+  url: null
+  note: no published SLA found
+status_page: null
+status_page_note: >-
+  no status page found — status.finnhub.io does not resolve and no status link
+  is published on the site or docs
+changelog: null
+changelog_note: finnhub.io/changelog redirects to the homepage; no dated changelog published
+deprecated_operations: []
+deprecated_operations_note: no operation in openapi/finnhub-swagger-original.json is marked deprecated

@@ -4,7 +4,7 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Finnhub
 providerId: finnhub
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-07-22'
 tags:
   - Financial
   - Market Data
@@ -26,6 +26,17 @@ responseCodes:
   quotaExceeded: 429
   serviceUnavailable: 503
 limits:
+  - tier: all
+    name: Global Per-Second Cap (published)
+    scope: api-key
+    metric: requests_per_second
+    limit: 30
+    timeFrame: second
+    source: https://finnhub.io/docs/api/rate-limit
+    description: Documented by Finnhub — "On top of all plan's limit, there is a 30 API calls/second
+      limit." Exceeding any limit returns HTTP 429.
+    applies:
+      - Finnhub
   - tier: free
     name: Free Tier Default
     scope: api-key

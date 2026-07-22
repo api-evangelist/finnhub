@@ -1,0 +1,22 @@
+generated: '2026-07-22'
+method: searched
+source: https://finnhub.io/docs/api (Rate Limits section) + openapi/finnhub-swagger-original.json
+format: http-status
+notes: >-
+  Finnhub publishes no error-code registry and its Swagger spec documents only
+  200 responses; the docs state the API "uses standard HTTP response codes".
+  The only explicitly documented error semantic is 429 on breached limits.
+  401 is the observed status for missing/invalid tokens (probing
+  /api/v1/openapi.json without a token returns 401). Errors are plain JSON,
+  not RFC 9457 problem+json.
+problems:
+  - status: 401
+    title: Unauthorized
+    detail: Missing or invalid API key. Send the key as the `token` query parameter or the `X-Finnhub-Token` header.
+    evidence: observed — unauthenticated requests to https://finnhub.io/api/v1/* return HTTP 401
+    remediation: Get a free key at https://finnhub.io/register and include it on every request.
+  - status: 429
+    title: API limit reached
+    detail: Plan rate limit or the global 30 API calls/second cap exceeded.
+    evidence: documented — https://finnhub.io/docs/api/rate-limit ("If your limit is exceeded, you will receive a response with status code 429")
+    remediation: Back off and retry after the window resets; upgrade the plan for higher limits.

@@ -1,0 +1,47 @@
+openapi: 3.1.0
+info:
+  title: Finnhub Company News Quote API
+  description: Free realtime APIs for stocks, forex, and cryptocurrency, plus company fundamentals, economic data, and alternative data. All endpoints require an API token passed via the `token` query parameter (or `X-Finnhub-Token` header).
+  version: '1.0'
+  contact:
+    name: Finnhub
+    url: https://finnhub.io/docs/api
+servers:
+- url: https://finnhub.io/api/v1
+  description: Production
+security:
+- tokenQuery: []
+- tokenHeader: []
+tags:
+- name: Quote
+paths:
+  /quote:
+    get:
+      summary: Real-time quote
+      operationId: quote
+      parameters:
+      - name: symbol
+        in: query
+        required: true
+        schema:
+          type: string
+          example: AAPL
+      responses:
+        '200':
+          description: Quote payload (c, d, dp, h, l, o, pc, t)
+          content:
+            application/json:
+              schema:
+                type: object
+      tags:
+      - Quote
+components:
+  securitySchemes:
+    tokenQuery:
+      type: apiKey
+      in: query
+      name: token
+    tokenHeader:
+      type: apiKey
+      in: header
+      name: X-Finnhub-Token

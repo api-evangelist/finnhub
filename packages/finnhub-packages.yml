@@ -1,0 +1,57 @@
+generated: '2026-07-22'
+method: searched
+source: https://finnhub.io/docs/api (Libraries section) + registry probes
+packages:
+  - language: python
+    registry: pypi
+    name: finnhub-python
+    version: 2.4.29
+    url: https://pypi.org/project/finnhub-python/
+    install: pip install finnhub-python
+    source: https://github.com/Finnhub-Stock-API/finnhub-python
+    official: true
+  - language: javascript
+    registry: npm
+    name: finnhub
+    version: 2.0.15
+    url: https://www.npmjs.com/package/finnhub
+    install: npm install finnhub
+    source: https://github.com/Finnhub-Stock-API/finnhub-js
+    official: true
+  - language: go
+    registry: go-modules
+    name: github.com/Finnhub-Stock-API/finnhub-go/v2
+    version: v2.0.24
+    url: https://pkg.go.dev/github.com/Finnhub-Stock-API/finnhub-go/v2
+    install: go get github.com/Finnhub-Stock-API/finnhub-go/v2
+    source: https://github.com/Finnhub-Stock-API/finnhub-go
+    official: true
+  - language: ruby
+    registry: rubygems
+    name: finnhub_ruby
+    version: 2.0.6
+    url: https://rubygems.org/gems/finnhub_ruby
+    install: gem install finnhub_ruby
+    source: https://github.com/Finnhub-Stock-API/finnhub-ruby
+    official: true
+  - language: php
+    registry: packagist
+    name: finnhub/client
+    version: v2.0.12
+    url: https://packagist.org/packages/finnhub/client
+    install: composer require finnhub/client
+    source: https://github.com/Finnhub-Stock-API/finnhub-php
+    official: true
+  - language: kotlin
+    registry: github
+    name: finnhub-kotlin
+    url: https://github.com/Finnhub-Stock-API/finnhub-kotlin
+    install: build from source (no Maven Central artifact published by Finnhub)
+    source: https://github.com/Finnhub-Stock-API/finnhub-kotlin
+    official: true
+notes: >-
+  All six libraries are listed as official in the Finnhub docs Libraries
+  section and live under the Finnhub-Stock-API GitHub organization. The org
+  also hosts finnhub-chainlink. Third-party clients exist on Maven Central
+  (com.github.oscerd:finnhub-java-client, com.hibernix.finnhub:*) but are not
+  first-party and are excluded.

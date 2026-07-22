@@ -1,0 +1,164 @@
+openapi: 3.1.0
+info:
+  title: Finnhub Company News Stock API
+  description: Free realtime APIs for stocks, forex, and cryptocurrency, plus company fundamentals, economic data, and alternative data. All endpoints require an API token passed via the `token` query parameter (or `X-Finnhub-Token` header).
+  version: '1.0'
+  contact:
+    name: Finnhub
+    url: https://finnhub.io/docs/api
+servers:
+- url: https://finnhub.io/api/v1
+  description: Production
+security:
+- tokenQuery: []
+- tokenHeader: []
+tags:
+- name: Stock
+paths:
+  /stock/symbol:
+    get:
+      summary: Stock symbols for an exchange
+      operationId: stockSymbols
+      parameters:
+      - name: exchange
+        in: query
+        required: true
+        schema:
+          type: string
+          example: US
+      - name: mic
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: currency
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Symbol list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+      tags:
+      - Stock
+  /stock/profile2:
+    get:
+      summary: Company profile (basic)
+      operationId: companyProfile2
+      parameters:
+      - name: symbol
+        in: query
+        schema:
+          type: string
+      - name: isin
+        in: query
+        schema:
+          type: string
+      - name: cusip
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Company profile
+          content:
+            application/json:
+              schema:
+                type: object
+      tags:
+      - Stock
+  /stock/candle:
+    get:
+      summary: Stock candles (OHLCV)
+      operationId: stockCandles
+      parameters:
+      - name: symbol
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: resolution
+        in: query
+        required: true
+        schema:
+          type: string
+          example: D
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Candle data
+          content:
+            application/json:
+              schema:
+                type: object
+      tags:
+      - Stock
+  /stock/recommendation:
+    get:
+      summary: Analyst recommendation trends
+      operationId: recommendationTrends
+      parameters:
+      - name: symbol
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Recommendation series
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+      tags:
+      - Stock
+  /stock/peers:
+    get:
+      summary: Peer companies
+      operationId: peers
+      parameters:
+      - name: symbol
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Peer symbols
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+      tags:
+      - Stock
+components:
+  securitySchemes:
+    tokenQuery:
+      type: apiKey
+      in: query
+      name: token
+    tokenHeader:
+      type: apiKey
+      in: header
+      name: X-Finnhub-Token

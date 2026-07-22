@@ -1,0 +1,26 @@
+{
+  "provider": "finnhub",
+  "sources": [
+    "finnhub-company-news-api-openapi.yml",
+    "finnhub-crypto-api-openapi.yml",
+    "finnhub-forex-api-openapi.yml",
+    "finnhub-news-api-openapi.yml",
+    "finnhub-quote-api-openapi.yml",
+    "finnhub-search-api-openapi.yml",
+    "finnhub-stock-api-openapi.yml"
+  ],
+  "outputs": [
+    "finnhub-company-news-api-openapi.yml",
+    "finnhub-crypto-api-openapi.yml",
+    "finnhub-forex-api-openapi.yml",
+    "finnhub-news-api-openapi.yml",
+    "finnhub-quote-api-openapi.yml",
+    "finnhub-search-api-openapi.yml",
+    "finnhub-stock-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

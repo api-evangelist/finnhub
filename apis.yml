@@ -6,41 +6,131 @@ description: >-
   access realtime market data from stock exchanges, 10 forex brokers, and 15+
   crypto exchanges.
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/finnhub.png
 access: 3rd-Party
 created: '2025-02-08'
-modified: '2026-05-29'
+modified: '2026-07-22'
 position: Consumer
 tags:
   - Financial
   - Market Data
   - Stocks
+  - Forex
+  - Cryptocurrency
+  - Fundamentals
+  - News
+  - WebSocket
 url: >-
   https://raw.githubusercontent.com/api-evangelist/finnhub/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: finnhub:finnhub
-    name: Finnhub
-    tags:
-      - Financial
-      - Market Data
-      - Stocks
-    humanURL: https://finnhub.io/docs/api
-    baseURL: https://finnhub.io/api/v1
-    properties:
-      - url: https://finnhub.io/docs/api
-        type: Documentation
-      - url: https://github.com/Finnhub-Stock-API
-        type: GitHubOrg
-      - url: https://finnhub.io/docs/api/websocket-trades
-        type: WebSocket
-      - url: >-
-          https://raw.githubusercontent.com/api-evangelist/finnhub/refs/heads/main/asyncapi/finnhub-asyncapi.yml
-        type: AsyncAPI
-    description: >-
-      With the sole mission of democratizing financial data, Finnhub offers a
-      realtime REST API for stocks, forex, and cryptocurrency, including market
-      data, company fundamentals, economic data, and alternative datasets.
+- aid: finnhub:finnhub
+  name: Finnhub
+  tags:
+  - Financial
+  - Market Data
+  - Stocks
+  humanURL: https://finnhub.io/docs/api
+  baseURL: https://finnhub.io/api/v1
+  properties:
+  - url: https://finnhub.io/docs/api
+    type: Documentation
+  - url: openapi/finnhub-swagger-original.json
+    type: OpenAPI
+  - url: https://github.com/Finnhub-Stock-API
+    type: GitHubOrg
+  - url: https://finnhub.io/docs/api/websocket-trades
+    type: WebSocket
+  - url: >-
+      https://raw.githubusercontent.com/api-evangelist/finnhub/refs/heads/main/asyncapi/finnhub-asyncapi.yml
+    type: AsyncAPI
+  description: >-
+    With the sole mission of democratizing financial data, Finnhub offers a realtime REST API for stocks,
+    forex, and cryptocurrency, including market data, company fundamentals, economic data, and alternative
+    datasets.
+- aid: finnhub:finnhub-company-news-api
+  name: Finnhub Company News API
+  description: The Company News API from Finnhub — 1 operation(s) for company news.
+  humanURL: https://finnhub.io/docs/api
+  baseURL: https://finnhub.io/api/v1
+  tags:
+  - Company News
+  properties:
+  - type: OpenAPI
+    url: openapi/finnhub-company-news-api-openapi.yml
+- aid: finnhub:finnhub-crypto-api
+  name: Finnhub Crypto API
+  description: The Crypto API from Finnhub — 3 operation(s) for crypto.
+  humanURL: https://finnhub.io/docs/api
+  baseURL: https://finnhub.io/api/v1
+  tags:
+  - Crypto
+  properties:
+  - type: OpenAPI
+    url: openapi/finnhub-crypto-api-openapi.yml
+- aid: finnhub:finnhub-forex-api
+  name: Finnhub Forex API
+  description: The Forex API from Finnhub — 3 operation(s) for forex.
+  humanURL: https://finnhub.io/docs/api
+  baseURL: https://finnhub.io/api/v1
+  tags:
+  - Forex
+  properties:
+  - type: OpenAPI
+    url: openapi/finnhub-forex-api-openapi.yml
+- aid: finnhub:finnhub-news-api
+  name: Finnhub News API
+  description: The News API from Finnhub — 1 operation(s) for news.
+  humanURL: https://finnhub.io/docs/api
+  baseURL: https://finnhub.io/api/v1
+  tags:
+  - News
+  properties:
+  - type: OpenAPI
+    url: openapi/finnhub-news-api-openapi.yml
+- aid: finnhub:finnhub-quote-api
+  name: Finnhub Quote API
+  description: The Quote API from Finnhub — 1 operation(s) for quote.
+  humanURL: https://finnhub.io/docs/api
+  baseURL: https://finnhub.io/api/v1
+  tags:
+  - Quote
+  properties:
+  - type: OpenAPI
+    url: openapi/finnhub-quote-api-openapi.yml
+- aid: finnhub:finnhub-search-api
+  name: Finnhub Search API
+  description: The Search API from Finnhub — 1 operation(s) for search.
+  humanURL: https://finnhub.io/docs/api
+  baseURL: https://finnhub.io/api/v1
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/finnhub-search-api-openapi.yml
+- aid: finnhub:finnhub-stock-api
+  name: Finnhub Stock API
+  description: The Stock API from Finnhub — 5 operation(s) for stock.
+  humanURL: https://finnhub.io/docs/api
+  baseURL: https://finnhub.io/api/v1
+  tags:
+  - Stock
+  properties:
+  - type: OpenAPI
+    url: openapi/finnhub-stock-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/finnhub-agentic-access.yml
@@ -48,12 +138,54 @@ common:
     url: security/finnhub-domain-security.yml
   - type: Authentication
     url: authentication/finnhub-authentication.yml
+  - type: OpenAPI
+    url: openapi/finnhub-swagger-original.json
+  - type: Packages
+    url: packages/finnhub-packages.yml
+  - type: SDKs
+    url: packages/finnhub-packages.yml
+  - type: MCPServer
+    url: mcp/finnhub-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/finnhub-tool-crosswalk.yml
+  - type: LLMsTxt
+    url: llms/finnhub-llms.txt
+  - type: Overlay
+    url: overlays/finnhub-swagger-overlay.yaml
+  - type: Conformance
+    url: conformance/finnhub-conformance.yml
+  - type: ErrorCatalog
+    url: errors/finnhub-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/finnhub-lifecycle.yml
+  - type: Conventions
+    url: conventions/finnhub-conventions.yml
+  - type: DataModel
+    url: data-model/finnhub-data-model.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  - type: RateLimits
+    url: rate-limits/finnhub-rate-limits.yml
+  - type: Plans
+    url: plans/finnhub-plans-pricing.yml
+  - type: FinOps
+    url: finops/finnhub-finops.yml
+  - type: Postman
+    url: collections/finnhub.postman_collection.json
   - type: LinkedIn
     url: https://www.linkedin.com/company/finnhub
   - type: Website
     url: https://finnhub.io/
   - type: Documentation
     url: https://finnhub.io/docs/api
+  - type: APIReference
+    url: https://finnhub.io/docs/api
+  - type: GitHubOrganization
+    url: https://github.com/Finnhub-Stock-API
+  - type: Support
+    url: mailto:support@finnhub.io
+  - type: TermsOfService
+    url: https://finnhub.io/terms-of-service
   - type: Pricing
     url: https://finnhub.io/pricing
   - type: Signup

@@ -1,0 +1,872 @@
+generated: '2026-07-22'
+method: derived
+source: openapi/finnhub-swagger-original.json (205 definitions)
+notes: 'Entity-relationship graph derived mechanically from the official Swagger 2.0 definitions: $ref
+  links between schemas become has_one/has_many relationships via the referencing property. Finnhub is
+  a read-only market-data API keyed almost entirely by security symbol; entities listing a symbol/ticker
+  property are recorded as symbol-keyed.'
+entities:
+- name: AIChatBody
+  properties: 2
+- name: AIChatMessage
+  properties: 2
+- name: AIChatResponse
+  properties: 7
+- name: AggregateIndicators
+  properties: 2
+- name: AirlinePriceIndex
+  properties: 3
+- name: AirlinePriceIndexData
+  properties: 4
+- name: BankBranchData
+  properties: 5
+- name: BankBranchRes
+  properties: 2
+- name: BasicFinancials
+  properties: 4
+- name: BondCandles
+  properties: 3
+- name: BondProfile
+  properties: 21
+- name: BondTickData
+  properties: 12
+- name: BondYieldCurve
+  properties: 2
+- name: BondYieldCurveInfo
+  properties: 2
+- name: BreakdownItem
+  properties: 2
+- name: BreakdownItemMap
+  properties: 0
+- name: CapexEstimates
+  properties: 3
+- name: CapexEstimatesInfo
+  properties: 7
+- name: Company
+  properties: 7
+- name: CompanyESG
+  properties: 6
+- name: CompanyESG2
+  properties: 6
+- name: CompanyESGMap
+  properties: 0
+- name: CompanyEarningsQualityScore
+  properties: 3
+- name: CompanyEarningsQualityScoreData
+  properties: 7
+- name: CompanyExecutive
+  properties: 2
+- name: CompanyNews
+  properties: 9
+- name: CompanyNewsStatistics
+  properties: 3
+- name: CompanyProfile
+  properties: 33
+- name: CompanyProfile2
+  properties: 12
+- name: CongressionalTrading
+  properties: 2
+- name: CongressionalTransaction
+  properties: 10
+- name: CountryMetadata
+  properties: 13
+- name: CovidInfo
+  properties: 4
+- name: CryptoCandles
+  properties: 7
+- name: CryptoProfile
+  properties: 11
+- name: CryptoSymbol
+  properties: 3
+- name: Development
+  properties: 5
+- name: Dividends
+  properties: 9
+- name: Dividends2
+  properties: 2
+- name: Dividends2Info
+  properties: 2
+- name: DocumentResponse
+  properties: 6
+- name: DpsEstimates
+  properties: 3
+- name: DpsEstimatesInfo
+  properties: 7
+- name: ETFAllocationData
+  properties: 9
+- name: ETFCountryExposureData
+  properties: 2
+- name: ETFHoldingsData
+  properties: 8
+- name: ETFProfileData
+  properties: 23
+- name: ETFSectorExposureData
+  properties: 2
+- name: ETFsAllocation
+  properties: 2
+- name: ETFsCountryExposure
+  properties: 2
+- name: ETFsHoldings
+  properties: 4
+- name: ETFsProfile
+  properties: 2
+- name: ETFsSectorExposure
+  properties: 2
+- name: EarningRelease
+  properties: 9
+- name: EarningResult
+  properties: 8
+- name: EarningsCalendar
+  properties: 1
+- name: EarningsCallLive
+  properties: 1
+- name: EarningsCallLiveResult
+  properties: 7
+- name: EarningsCallTranscripts
+  properties: 9
+- name: EarningsCallTranscriptsList
+  properties: 2
+- name: EarningsEstimates
+  properties: 3
+- name: EarningsEstimatesInfo
+  properties: 7
+- name: EbitEstimates
+  properties: 3
+- name: EbitEstimatesInfo
+  properties: 7
+- name: EbitdaEstimates
+  properties: 3
+- name: EbitdaEstimatesInfo
+  properties: 7
+- name: Economic event
+  properties: 8
+- name: EconomicCalendar
+  properties: 1
+- name: EconomicCode
+  properties: 4
+- name: EconomicData
+  properties: 2
+- name: EconomicDataInfo
+  properties: 2
+- name: EmployeeCount
+  properties: 2
+- name: ExcerptResponse
+  properties: 4
+- name: FDAComitteeMeeting
+  properties: 4
+- name: FcfEstimates
+  properties: 3
+- name: FcfEstimatesInfo
+  properties: 7
+- name: Filing
+  properties: 8
+- name: FilingResponse
+  properties: 13
+- name: FilingSentiment
+  properties: 9
+- name: FinancialMap
+  properties: 0
+- name: FinancialStatements
+  properties: 2
+- name: FinancialsAsReported
+  properties: 3
+- name: ForexCandles
+  properties: 7
+- name: ForexRate
+  properties: 0
+- name: ForexSymbol
+  properties: 3
+- name: Forexrates
+  properties: 2
+- name: FundOwnership
+  properties: 2
+- name: FundOwnershipInfo
+  properties: 5
+- name: GrossIncomeEstimates
+  properties: 3
+- name: GrossIncomeEstimatesInfo
+  properties: 7
+- name: HistoricalCompanyESG
+  properties: 2
+- name: HistoricalEmployeeCount
+  properties: 2
+- name: HistoricalMarketCapData
+  properties: 3
+- name: HistoricalNBBO
+  properties: 12
+- name: IPOCalendar
+  properties: 1
+- name: IPOEvent
+  properties: 8
+- name: InFilingResponse
+  properties: 14
+- name: InFilingSearchBody
+  properties: 2
+- name: IndexHistoricalConstituent
+  properties: 3
+- name: Indicator
+  properties: 3
+- name: IndicatorFields
+  properties: 0
+- name: IndicesConstituents
+  properties: 3
+- name: IndicesConstituentsBreakdown
+  properties: 6
+- name: IndicesHistoricalConstituents
+  properties: 2
+- name: InsiderSentiments
+  properties: 2
+- name: InsiderSentimentsData
+  properties: 5
+- name: InsiderTransactions
+  properties: 2
+- name: InstitutionalOwnership
+  properties: 3
+- name: InstitutionalOwnershipGroup
+  properties: 2
+- name: InstitutionalOwnershipInfo
+  properties: 10
+- name: InstitutionalPortfolio
+  properties: 3
+- name: InstitutionalPortfolioGroup
+  properties: 3
+- name: InstitutionalPortfolioInfo
+  properties: 11
+- name: InstitutionalProfile
+  properties: 2
+- name: InstitutionalProfileInfo
+  properties: 6
+- name: InternationalFiling
+  properties: 9
+- name: InvestmentThemePortfolio
+  properties: 1
+- name: InvestmentThemes
+  properties: 2
+- name: IsinChange
+  properties: 3
+- name: IsinChangeInfo
+  properties: 3
+- name: KeyCustomersSuppliers
+  properties: 12
+- name: LastBid-Ask
+  properties: 5
+- name: LobbyingData
+  properties: 15
+- name: LobbyingResult
+  properties: 2
+- name: MarketCapData
+  properties: 2
+- name: MarketHoliday
+  properties: 3
+- name: MarketHolidayData
+  properties: 3
+- name: MarketNews
+  properties: 9
+- name: MarketStatus
+  properties: 6
+- name: MetricMap
+  properties: 0
+- name: MetricSeriesMap
+  properties: 0
+- name: MutualFundCountryExposure
+  properties: 2
+- name: MutualFundCountryExposureData
+  properties: 2
+- name: MutualFundEet
+  properties: 2
+- name: MutualFundEetData
+  properties: 0
+- name: MutualFundEetPai
+  properties: 2
+- name: MutualFundEetPaiData
+  properties: 0
+- name: MutualFundHoldings
+  properties: 4
+- name: MutualFundHoldingsData
+  properties: 8
+- name: MutualFundProfile
+  properties: 2
+- name: MutualFundProfileData
+  properties: 28
+- name: MutualFundSectorExposure
+  properties: 2
+- name: MutualFundSectorExposureData
+  properties: 2
+- name: NetIncomeEstimates
+  properties: 3
+- name: NetIncomeEstimatesInfo
+  properties: 7
+- name: NewsSentiment
+  properties: 6
+- name: Newsroom
+  properties: 2
+- name: NewsroomArticle
+  properties: 4
+- name: OcfEstimates
+  properties: 3
+- name: OcfEstimatesInfo
+  properties: 7
+- name: Ownership
+  properties: 2
+- name: OwnershipInfo
+  properties: 4
+- name: PatternRecognition
+  properties: 1
+- name: PresentationData
+  properties: 5
+- name: PressRelease
+  properties: 2
+- name: PretaxIncomeEstimates
+  properties: 3
+- name: PretaxIncomeEstimatesInfo
+  properties: 7
+- name: PriceMetricMap
+  properties: 0
+- name: PriceMetrics
+  properties: 3
+- name: PriceTarget
+  properties: 7
+- name: Quote
+  properties: 7
+- name: RecommendationTrend
+  properties: 7
+- name: Report
+  properties: 11
+- name: ReportDataMap
+  properties: 0
+- name: RevenueBreakdown
+  properties: 3
+- name: RevenueBreakdown2
+  properties: 3
+- name: RevenueEstimates
+  properties: 3
+- name: RevenueEstimatesInfo
+  properties: 7
+- name: SECSentimentAnalysis
+  properties: 4
+- name: ScanPattern
+  properties: 0
+- name: SearchBody
+  properties: 22
+- name: SearchFilter
+  properties: 2
+- name: SearchResponse
+  properties: 4
+- name: SectorMetric
+  properties: 2
+- name: SectorMetricData
+  properties: 2
+- name: Sentiment
+  properties: 2
+- name: SentimentContent
+  properties: 7
+- name: SimilarityIndex
+  properties: 3
+- name: SimilarityIndexInfo
+  properties: 12
+- name: SocialSentiment
+  properties: 2
+- name: Split
+  properties: 4
+- name: StockCandles
+  properties: 7
+- name: StockPresentation
+  properties: 2
+- name: StockSymbol
+  properties: 10
+- name: StockTranscripts
+  properties: 5
+- name: SupplyChainRelationships
+  properties: 2
+- name: SupportResistance
+  properties: 1
+- name: SymbolChange
+  properties: 3
+- name: SymbolChangeInfo
+  properties: 3
+- name: SymbolLookup
+  properties: 2
+- name: SymbolLookupInfo
+  properties: 4
+- name: TechnicalAnalysis
+  properties: 2
+- name: TechnicalIndicator
+  properties: 0
+- name: TickData
+  properties: 9
+- name: Transactions
+  properties: 8
+- name: TranscriptContent
+  properties: 3
+- name: TranscriptParticipant
+  properties: 3
+- name: Trend
+  properties: 2
+- name: UpgradeDowngrade
+  properties: 6
+- name: UsaSpending
+  properties: 20
+- name: UsaSpendingResult
+  properties: 2
+- name: UsptoPatent
+  properties: 9
+- name: UsptoPatentResult
+  properties: 2
+- name: VisaApplication
+  properties: 23
+- name: VisaApplicationResult
+  properties: 2
+relationships:
+- from: AIChatBody
+  to: AIChatMessage
+  via: messages
+  kind: has_many
+- from: AggregateIndicators
+  to: TechnicalAnalysis
+  via: technicalAnalysis
+  kind: has_one
+- from: AggregateIndicators
+  to: Trend
+  via: trend
+  kind: has_one
+- from: AirlinePriceIndexData
+  to: AirlinePriceIndex
+  via: data
+  kind: has_many
+- from: BankBranchRes
+  to: BankBranchData
+  via: data
+  kind: has_many
+- from: BasicFinancials
+  to: MetricMap
+  via: metric
+  kind: has_one
+- from: BasicFinancials
+  to: MetricSeriesMap
+  via: series
+  kind: has_one
+- from: BondYieldCurve
+  to: BondYieldCurveInfo
+  via: data
+  kind: has_many
+- from: BreakdownItem
+  to: BreakdownItemMap
+  via: breakdown
+  kind: has_one
+- from: CapexEstimates
+  to: CapexEstimatesInfo
+  via: data
+  kind: has_many
+- from: CompanyESG
+  to: CompanyESGMap
+  via: data
+  kind: has_one
+- from: CompanyESG2
+  to: CompanyESGMap
+  via: data
+  kind: has_one
+- from: CompanyEarningsQualityScore
+  to: CompanyEarningsQualityScoreData
+  via: data
+  kind: has_many
+- from: CompanyExecutive
+  to: Company
+  via: executive
+  kind: has_many
+- from: CongressionalTrading
+  to: CongressionalTransaction
+  via: data
+  kind: has_many
+- from: Dividends2
+  to: Dividends2Info
+  via: data
+  kind: has_many
+- from: DocumentResponse
+  to: ExcerptResponse
+  via: excerpts
+  kind: has_many
+- from: DpsEstimates
+  to: DpsEstimatesInfo
+  via: data
+  kind: has_many
+- from: ETFsAllocation
+  to: ETFAllocationData
+  via: data
+  kind: has_one
+- from: ETFsCountryExposure
+  to: ETFCountryExposureData
+  via: countryExposure
+  kind: has_many
+- from: ETFsHoldings
+  to: ETFHoldingsData
+  via: holdings
+  kind: has_many
+- from: ETFsProfile
+  to: ETFProfileData
+  via: profile
+  kind: has_one
+- from: ETFsSectorExposure
+  to: ETFSectorExposureData
+  via: sectorExposure
+  kind: has_many
+- from: EarningsCalendar
+  to: EarningRelease
+  via: earningsCalendar
+  kind: has_many
+- from: EarningsCallLive
+  to: EarningsCallLiveResult
+  via: event
+  kind: has_many
+- from: EarningsCallTranscripts
+  to: TranscriptContent
+  via: transcript
+  kind: has_many
+- from: EarningsCallTranscripts
+  to: TranscriptParticipant
+  via: participant
+  kind: has_many
+- from: EarningsCallTranscriptsList
+  to: StockTranscripts
+  via: transcripts
+  kind: has_many
+- from: EarningsEstimates
+  to: EarningsEstimatesInfo
+  via: data
+  kind: has_many
+- from: EbitEstimates
+  to: EbitEstimatesInfo
+  via: data
+  kind: has_many
+- from: EbitdaEstimates
+  to: EbitdaEstimatesInfo
+  via: data
+  kind: has_many
+- from: EconomicCalendar
+  to: Economic
+  via: economicCalendar
+  kind: has_many
+- from: EconomicData
+  to: EconomicDataInfo
+  via: data
+  kind: has_many
+- from: FcfEstimates
+  to: FcfEstimatesInfo
+  via: data
+  kind: has_many
+- from: FinancialStatements
+  to: FinancialMap
+  via: financials
+  kind: has_many
+- from: FinancialsAsReported
+  to: Report
+  via: data
+  kind: has_many
+- from: Forexrates
+  to: ForexRate
+  via: quote
+  kind: has_one
+- from: FundOwnership
+  to: FundOwnershipInfo
+  via: ownership
+  kind: has_many
+- from: GrossIncomeEstimates
+  to: GrossIncomeEstimatesInfo
+  via: data
+  kind: has_many
+- from: HistoricalCompanyESG
+  to: CompanyESG2
+  via: data
+  kind: has_many
+- from: HistoricalEmployeeCount
+  to: EmployeeCount
+  via: data
+  kind: has_many
+- from: HistoricalMarketCapData
+  to: MarketCapData
+  via: data
+  kind: has_many
+- from: IPOCalendar
+  to: IPOEvent
+  via: ipoCalendar
+  kind: has_many
+- from: InFilingResponse
+  to: DocumentResponse
+  via: documents
+  kind: has_many
+- from: IndicesConstituents
+  to: IndicesConstituentsBreakdown
+  via: constituentsBreakdown
+  kind: has_many
+- from: IndicesHistoricalConstituents
+  to: IndexHistoricalConstituent
+  via: historicalConstituents
+  kind: has_many
+- from: InsiderSentiments
+  to: InsiderSentimentsData
+  via: data
+  kind: has_many
+- from: InsiderTransactions
+  to: Transactions
+  via: data
+  kind: has_many
+- from: InstitutionalOwnership
+  to: InstitutionalOwnershipGroup
+  via: data
+  kind: has_many
+- from: InstitutionalOwnershipGroup
+  to: InstitutionalOwnershipInfo
+  via: ownership
+  kind: has_many
+- from: InstitutionalPortfolio
+  to: InstitutionalPortfolioGroup
+  via: data
+  kind: has_many
+- from: InstitutionalPortfolioGroup
+  to: InstitutionalPortfolioInfo
+  via: portfolio
+  kind: has_many
+- from: InstitutionalProfile
+  to: InstitutionalProfileInfo
+  via: data
+  kind: has_many
+- from: InvestmentThemes
+  to: InvestmentThemePortfolio
+  via: data
+  kind: has_many
+- from: IsinChange
+  to: IsinChangeInfo
+  via: data
+  kind: has_many
+- from: LobbyingResult
+  to: LobbyingData
+  via: data
+  kind: has_many
+- from: MarketHoliday
+  to: MarketHolidayData
+  via: data
+  kind: has_many
+- from: MutualFundCountryExposure
+  to: MutualFundCountryExposureData
+  via: countryExposure
+  kind: has_many
+- from: MutualFundEet
+  to: MutualFundEetData
+  via: data
+  kind: has_one
+- from: MutualFundEetPai
+  to: MutualFundEetPaiData
+  via: data
+  kind: has_one
+- from: MutualFundHoldings
+  to: MutualFundHoldingsData
+  via: holdings
+  kind: has_many
+- from: MutualFundProfile
+  to: MutualFundProfileData
+  via: profile
+  kind: has_one
+- from: MutualFundSectorExposure
+  to: MutualFundSectorExposureData
+  via: sectorExposure
+  kind: has_many
+- from: NetIncomeEstimates
+  to: NetIncomeEstimatesInfo
+  via: data
+  kind: has_many
+- from: NewsSentiment
+  to: CompanyNewsStatistics
+  via: buzz
+  kind: has_one
+- from: NewsSentiment
+  to: Sentiment
+  via: sentiment
+  kind: has_one
+- from: Newsroom
+  to: NewsroomArticle
+  via: data
+  kind: has_many
+- from: OcfEstimates
+  to: OcfEstimatesInfo
+  via: data
+  kind: has_many
+- from: Ownership
+  to: OwnershipInfo
+  via: ownership
+  kind: has_many
+- from: PatternRecognition
+  to: ScanPattern
+  via: points
+  kind: has_many
+- from: PressRelease
+  to: Development
+  via: majorDevelopment
+  kind: has_many
+- from: PretaxIncomeEstimates
+  to: PretaxIncomeEstimatesInfo
+  via: data
+  kind: has_many
+- from: PriceMetrics
+  to: PriceMetricMap
+  via: data
+  kind: has_one
+- from: Report
+  to: ReportDataMap
+  via: report
+  kind: has_one
+- from: RevenueBreakdown
+  to: BreakdownItem
+  via: data
+  kind: has_many
+- from: RevenueEstimates
+  to: RevenueEstimatesInfo
+  via: data
+  kind: has_many
+- from: SECSentimentAnalysis
+  to: FilingSentiment
+  via: sentiment
+  kind: has_one
+- from: SearchResponse
+  to: FilingResponse
+  via: filings
+  kind: has_many
+- from: SectorMetric
+  to: SectorMetricData
+  via: data
+  kind: has_many
+- from: SimilarityIndex
+  to: SimilarityIndexInfo
+  via: similarity
+  kind: has_many
+- from: SocialSentiment
+  to: SentimentContent
+  via: data
+  kind: has_many
+- from: StockPresentation
+  to: PresentationData
+  via: res
+  kind: has_many
+- from: SupplyChainRelationships
+  to: KeyCustomersSuppliers
+  via: data
+  kind: has_many
+- from: SymbolChange
+  to: SymbolChangeInfo
+  via: data
+  kind: has_many
+- from: SymbolLookup
+  to: SymbolLookupInfo
+  via: result
+  kind: has_many
+- from: TechnicalAnalysis
+  to: Indicator
+  via: count
+  kind: has_one
+- from: UsaSpendingResult
+  to: UsaSpending
+  via: data
+  kind: has_many
+- from: UsptoPatentResult
+  to: UsptoPatent
+  via: data
+  kind: has_many
+- from: VisaApplicationResult
+  to: VisaApplication
+  via: data
+  kind: has_many
+symbol_keyed_entities:
+- BankBranchRes
+- BasicFinancials
+- BondCandles
+- CapexEstimates
+- CompanyESG
+- CompanyEarningsQualityScore
+- CompanyExecutive
+- CompanyProfile
+- CompanyProfile2
+- CongressionalTrading
+- CongressionalTransaction
+- CryptoCandles
+- CryptoSymbol
+- Development
+- Dividends
+- Dividends2
+- DpsEstimates
+- ETFHoldingsData
+- ETFsAllocation
+- ETFsCountryExposure
+- ETFsHoldings
+- ETFsProfile
+- ETFsSectorExposure
+- EarningRelease
+- EarningResult
+- EarningsCallLiveResult
+- EarningsCallTranscripts
+- EarningsCallTranscriptsList
+- EarningsEstimates
+- EbitEstimates
+- EbitdaEstimates
+- FcfEstimates
+- Filing
+- FilingResponse
+- FinancialStatements
+- FinancialsAsReported
+- ForexCandles
+- ForexSymbol
+- FundOwnership
+- GrossIncomeEstimates
+- HistoricalCompanyESG
+- HistoricalEmployeeCount
+- HistoricalMarketCapData
+- HistoricalNBBO
+- IPOEvent
+- InFilingResponse
+- IndexHistoricalConstituent
+- IndicesConstituents
+- IndicesConstituentsBreakdown
+- IndicesHistoricalConstituents
+- InsiderSentiments
+- InsiderSentimentsData
+- InsiderTransactions
+- InstitutionalOwnership
+- InstitutionalPortfolioInfo
+- InternationalFiling
+- InvestmentThemePortfolio
+- KeyCustomersSuppliers
+- LobbyingData
+- LobbyingResult
+- MutualFundCountryExposure
+- MutualFundHoldings
+- MutualFundHoldingsData
+- MutualFundProfile
+- MutualFundSectorExposure
+- NetIncomeEstimates
+- NewsSentiment
+- Newsroom
+- OcfEstimates
+- Ownership
+- PressRelease
+- PretaxIncomeEstimates
+- PriceMetrics
+- PriceTarget
+- RecommendationTrend
+- Report
+- RevenueBreakdown
+- RevenueBreakdown2
+- RevenueEstimates
+- SECSentimentAnalysis
+- SimilarityIndex
+- SocialSentiment
+- Split
+- StockCandles
+- StockPresentation
+- StockSymbol
+- SupplyChainRelationships
+- SymbolLookupInfo
+- TickData
+- Transactions
+- UpgradeDowngrade
+- UsaSpending
+- UsaSpendingResult
+- UsptoPatentResult
+- VisaApplication
+- VisaApplicationResult

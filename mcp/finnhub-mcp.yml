@@ -1,0 +1,74 @@
+generated: '2026-07-22'
+method: searched
+status: candidate
+source: https://registry.modelcontextprotocol.io/v0/servers?search=finnhub
+notes: >-
+  Finnhub publishes no first-party MCP server. A community-maintained server
+  is listed in the official MCP registry (io.github.cyanheads/finnhub-mcp-server,
+  v0.1.1) — recorded below as the discovered community surface. The server:
+  block remains a candidate first-party design derived from the official
+  Swagger spec (openapi/finnhub-swagger-original.json).
+community_servers:
+  - name: io.github.cyanheads/finnhub-mcp-server
+    registry: https://registry.modelcontextprotocol.io
+    repository: https://github.com/cyanheads/finnhub-mcp-server
+    package: '@cyanheads/finnhub-mcp-server'
+    package_registry: npm
+    version: 0.1.1
+    transports: [stdio, streamable-http]
+    hosted: false
+    official: false
+    auth:
+      env: FINNHUB_API_KEY
+      note: requires the user's own Finnhub API key; token injected server-side
+    tools:
+      - name: finnhub_search_symbols
+        description: Resolve a company name or partial ticker to US stock symbols, best US match first.
+      - name: finnhub_get_quote
+        description: Real-time price quote for one US symbol, paired with live market-status.
+      - name: finnhub_get_company
+        description: Full company context in one call — profile, headline fundamentals, and sector peers.
+      - name: finnhub_get_earnings
+        description: Past quarters with actual-vs-estimate surprises (history) or upcoming releases (calendar).
+      - name: finnhub_get_news
+        description: Recent articles for one symbol over a date range (company) or market headlines by category (market).
+      - name: finnhub_get_recommendations
+        description: Analyst recommendation trends — strong-buy/buy/hold/sell/strong-sell counts per month.
+server:
+  name: finnhub
+  transport: http
+  status: candidate
+tools:
+  - name: symbol_search
+    description: Search for best-matching symbols by query text
+    source_operation: openapi/finnhub-swagger-original.json#symbol-search
+  - name: get_quote
+    description: Get real-time quote data for US stocks
+    source_operation: openapi/finnhub-swagger-original.json#quote
+  - name: get_company_profile
+    description: Get general profile of a company by symbol, ISIN, or CUSIP
+    source_operation: openapi/finnhub-swagger-original.json#company-profile2
+  - name: get_company_news
+    description: List latest company news by symbol (North American companies)
+    source_operation: openapi/finnhub-swagger-original.json#company-news
+  - name: get_market_news
+    description: Get latest market news by category
+    source_operation: openapi/finnhub-swagger-original.json#market-news
+  - name: get_basic_financials
+    description: Get company basic financials (margin, P/E, 52-week high/low)
+    source_operation: openapi/finnhub-swagger-original.json#company-basic-financials
+  - name: get_recommendation_trends
+    description: Get latest analyst recommendation trends for a company
+    source_operation: openapi/finnhub-swagger-original.json#recommendation-trends
+  - name: get_earnings_calendar
+    description: Get historical and coming earnings releases
+    source_operation: openapi/finnhub-swagger-original.json#earnings-calendar
+  - name: get_stock_candles
+    description: Get candlestick data (OHLCV) for stocks
+    source_operation: openapi/finnhub-swagger-original.json#stock-candles
+  - name: get_forex_rates
+    description: Get rates for all forex pairs
+    source_operation: openapi/finnhub-swagger-original.json#forex-rates
+  - name: get_crypto_candles
+    description: Get candlestick data for crypto symbols
+    source_operation: openapi/finnhub-swagger-original.json#crypto-candles

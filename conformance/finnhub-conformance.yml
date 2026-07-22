@@ -1,0 +1,40 @@
+generated: '2026-07-22'
+method: derived
+source: openapi/finnhub-swagger-original.json + https://finnhub.io/docs/api
+standards:
+  - id: openapi
+    conforms: true
+    evidence: official Swagger 2.0 specification published at https://finnhub.io/static/swagger.json (117 operations)
+  - id: asyncapi
+    conforms: false
+    evidence: WebSocket streams documented in prose only; the AsyncAPI 2.6 doc in asyncapi/ is API Evangelist-authored, not provider-published
+  - id: api-key-auth
+    conforms: true
+    evidence: securityDefinitions.api_key (apiKey in query `token`); X-Finnhub-Token header alternative documented
+  - id: oauth2
+    conforms: false
+    evidence: no oauth2 security scheme in the spec and no OAuth documentation
+  - id: oidc
+    conforms: false
+    evidence: /.well-known/openid-configuration returns the HTML site shell, not OIDC discovery metadata
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: errors are plain JSON with standard HTTP status codes (docs — "uses standard HTTP response codes"); no application/problem+json
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: /.well-known/security.txt returns the HTML site shell
+  - id: json-api
+    conforms: false
+    evidence: plain JSON-encoded responses, no JSON:API media type
+  - id: pagination
+    conforms: false
+    evidence: no cursor/offset pagination convention; time-series endpoints use from/to UNIX-timestamp windows instead
+  - id: idempotency-key
+    conforms: false
+    evidence: all 117 operations are GET (naturally idempotent reads); no Idempotency-Key request contract
+  - id: rate-limit-signaling
+    conforms: true
+    evidence: HTTP 429 on breached limits plus a documented global 30 calls/second cap (https://finnhub.io/docs/api/rate-limit)
+  - id: websocket-streaming
+    conforms: true
+    evidence: wss://ws.finnhub.io streams trades, news, and press releases (https://finnhub.io/docs/api/websocket-trades)

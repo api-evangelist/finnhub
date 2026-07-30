@@ -37,30 +37,6 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/finnhub/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-- aid: finnhub:finnhub
-  name: Finnhub
-  tags:
-  - Financial
-  - Market Data
-  - Stocks
-  humanURL: https://finnhub.io/docs/api
-  baseURL: https://finnhub.io/api/v1
-  properties:
-  - url: https://finnhub.io/docs/api
-    type: Documentation
-  - url: openapi/finnhub-swagger-original.json
-    type: OpenAPI
-  - url: https://github.com/Finnhub-Stock-API
-    type: GitHubOrg
-  - url: https://finnhub.io/docs/api/websocket-trades
-    type: WebSocket
-  - url: >-
-      https://raw.githubusercontent.com/api-evangelist/finnhub/refs/heads/main/asyncapi/finnhub-asyncapi.yml
-    type: AsyncAPI
-  description: >-
-    With the sole mission of democratizing financial data, Finnhub offers a realtime REST API for stocks,
-    forex, and cryptocurrency, including market data, company fundamentals, economic data, and alternative
-    datasets.
 - aid: finnhub:finnhub-company-news-api
   name: Finnhub Company News API
   description: The Company News API from Finnhub — 1 operation(s) for company news.

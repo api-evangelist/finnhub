@@ -35,7 +35,7 @@ tags:
   - WebSocket
 url: >-
   https://raw.githubusercontent.com/api-evangelist/finnhub/refs/heads/main/apis.yml
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: finnhub:finnhub-company-news-api
   name: Finnhub Company News API

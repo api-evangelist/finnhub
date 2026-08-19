@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Finnhub Company News Forex API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Forex",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Forex symbols for an exchange",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://finnhub.io/api/v1/forex/symbol",
+            "params": [
+              {
+                "name": "exchange",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Forex symbols for an exchange"
+        },
+        {
+          "info": {
+            "name": "Supported forex exchanges",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://finnhub.io/api/v1/forex/exchange"
+          },
+          "docs": "Supported forex exchanges"
+        },
+        {
+          "info": {
+            "name": "Forex candles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://finnhub.io/api/v1/forex/candle",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resolution",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Forex candles"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

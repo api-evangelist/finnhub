@@ -1,0 +1,2989 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Finnhub API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Symbol Lookup",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/search",
+        "params": [
+          {
+            "name": "q",
+            "value": "",
+            "type": "query",
+            "description": "Query text can be symbol, name, isin, or cusip."
+          },
+          {
+            "name": "exchange",
+            "value": "",
+            "type": "query",
+            "description": "Exchange limit."
+          }
+        ]
+      },
+      "docs": "Search for best-matching symbols based on your query. You can input anything from symbol, security's name to ISIN and Cusip."
+    },
+    {
+      "info": {
+        "name": "Stock Symbol",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/symbol",
+        "params": [
+          {
+            "name": "exchange",
+            "value": "",
+            "type": "query",
+            "description": "Exchange you want to get the list of symbols from. List of exchange codes can be found <a href=\"https://docs.google.com/spreadsheets/d/1I3pBxjfXB056-g_JYf_6o3Rns3BV2kMGG1nCatb91ls/edit?usp=sharing\" target=\"_blank\">here</a>."
+          },
+          {
+            "name": "mic",
+            "value": "",
+            "type": "query",
+            "description": "Filter by MIC code."
+          },
+          {
+            "name": "securityType",
+            "value": "",
+            "type": "query",
+            "description": "Filter by security type used by OpenFigi standard."
+          },
+          {
+            "name": "currency",
+            "value": "",
+            "type": "query",
+            "description": "Filter by currency."
+          }
+        ]
+      },
+      "docs": "List supported stocks. We use the following symbology to identify stocks on Finnhub <code>Exchange_Ticker.Exchange_Code</code>. A list of supported exchange codes can be found <a href=\"https://docs.google.com/spreadsheets/d/1I3pBxjfXB056-g_JYf_6o3Rns3BV2kMGG1nCatb91ls/edit?usp=sharing\" target=\"_blank\">here</a>."
+    },
+    {
+      "info": {
+        "name": "Market Status",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/market-status",
+        "params": [
+          {
+            "name": "exchange",
+            "value": "",
+            "type": "query",
+            "description": "Exchange code."
+          }
+        ]
+      },
+      "docs": "Get current market status for global exchanges (whether exchanges are open or close)."
+    },
+    {
+      "info": {
+        "name": "Market Holiday",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/market-holiday",
+        "params": [
+          {
+            "name": "exchange",
+            "value": "",
+            "type": "query",
+            "description": "Exchange code."
+          }
+        ]
+      },
+      "docs": "Get a list of holidays for global exchanges."
+    },
+    {
+      "info": {
+        "name": "Company Profile",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/profile",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL e.g."
+          },
+          {
+            "name": "isin",
+            "value": "",
+            "type": "query",
+            "description": "ISIN"
+          },
+          {
+            "name": "cusip",
+            "value": "",
+            "type": "query",
+            "description": "CUSIP"
+          }
+        ]
+      },
+      "docs": "Get general information of a company. You can query by symbol, ISIN or CUSIP"
+    },
+    {
+      "info": {
+        "name": "Company Profile 2",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/profile2",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL e.g."
+          },
+          {
+            "name": "isin",
+            "value": "",
+            "type": "query",
+            "description": "ISIN"
+          },
+          {
+            "name": "cusip",
+            "value": "",
+            "type": "query",
+            "description": "CUSIP"
+          }
+        ]
+      },
+      "docs": "Get general information of a company. You can query by symbol, ISIN or CUSIP. This is the free version of <a href=\"#company-profile\">Company Profile</a>."
+    },
+    {
+      "info": {
+        "name": "Company Executive",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/executive",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          }
+        ]
+      },
+      "docs": "Get a list of company's executives and members of the Board."
+    },
+    {
+      "info": {
+        "name": "Market News",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/news",
+        "params": [
+          {
+            "name": "category",
+            "value": "",
+            "type": "query",
+            "description": "This parameter can be 1 of the following values <code>general, forex, crypto, merger</code>."
+          },
+          {
+            "name": "minId",
+            "value": "",
+            "type": "query",
+            "description": "Use this field to get only news after this ID. Default to 0"
+          }
+        ]
+      },
+      "docs": "Get latest market news."
+    },
+    {
+      "info": {
+        "name": "Company News",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/company-news",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Company symbol."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date <code>YYYY-MM-DD</code>."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date <code>YYYY-MM-DD</code>."
+          }
+        ]
+      },
+      "docs": "List latest company news by symbol. This endpoint is only available for North American companies."
+    },
+    {
+      "info": {
+        "name": "Major Press Releases",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/press-releases",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Company symbol."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From time: 2020-01-01."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To time: 2020-01-05."
+          }
+        ]
+      },
+      "docs": "<p>Get latest major press releases of a company. This data can be used to highlight the most significant events comprised of mostly press releases sourced from the exchanges, BusinessWire, AccessWire, GlobeNewswire, Newsfile, and PRNewswire.</p><p>Full-text press releases data is available for Enterprise clients. <a href=\"mailto:support@finnhub.io\">Contact Us</a> to learn more.</p>"
+    },
+    {
+      "info": {
+        "name": "News Sentiment",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/news-sentiment",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Company symbol."
+          }
+        ]
+      },
+      "docs": "Get company's news sentiment and statistics. This endpoint is only available for US companies."
+    },
+    {
+      "info": {
+        "name": "Peers",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/peers",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          },
+          {
+            "name": "grouping",
+            "value": "",
+            "type": "query",
+            "description": "Specify the grouping criteria for choosing peers.Supporter values: <code>sector</code>, <code>industry</code>, <code>subIndustry</code>. Default to <code>subIndustry</code>."
+          }
+        ]
+      },
+      "docs": "Get company peers. Return a list of peers operating in the same country and sector/industry."
+    },
+    {
+      "info": {
+        "name": "Basic Financials",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/metric",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          },
+          {
+            "name": "metric",
+            "value": "",
+            "type": "query",
+            "description": "Metric type. Can be 1 of the following values <code>all</code>"
+          }
+        ]
+      },
+      "docs": "Get company basic financials such as margin, P/E ratio, 52-week high/low etc."
+    },
+    {
+      "info": {
+        "name": "Price Metrics",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/price-metric",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          },
+          {
+            "name": "date",
+            "value": "",
+            "type": "query",
+            "description": "Get data on a specific date in the past. The data is available weekly so your date will be automatically adjusted to the last day of that week."
+          }
+        ]
+      },
+      "docs": "Get company price performance statistics such as 52-week high/low, YTD return and much more."
+    },
+    {
+      "info": {
+        "name": "Symbol Change",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/ca/symbol-change",
+        "params": [
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date <code>YYYY-MM-DD</code>."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date <code>YYYY-MM-DD</code>."
+          }
+        ]
+      },
+      "docs": "Get a list of symbol changes for US-listed, EU-listed, NSE and ASX securities. Limit to 2000 events at a time."
+    },
+    {
+      "info": {
+        "name": "ISIN Change",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/ca/isin-change",
+        "params": [
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date <code>YYYY-MM-DD</code>."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date <code>YYYY-MM-DD</code>."
+          }
+        ]
+      },
+      "docs": "Get a list of ISIN changes for EU-listed securities. Limit to 2000 events at a time."
+    },
+    {
+      "info": {
+        "name": "Historical Market Cap",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/historical-market-cap",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Company symbol."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date <code>YYYY-MM-DD</code>."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date <code>YYYY-MM-DD</code>."
+          }
+        ]
+      },
+      "docs": "Get historical market cap data for global companies."
+    },
+    {
+      "info": {
+        "name": "Historical Employee Count",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/historical-employee-count",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Company symbol."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date <code>YYYY-MM-DD</code>."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date <code>YYYY-MM-DD</code>."
+          }
+        ]
+      },
+      "docs": "Get historical employee count for global companies."
+    },
+    {
+      "info": {
+        "name": "Institutional Profile",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/institutional/profile",
+        "params": [
+          {
+            "name": "cik",
+            "value": "",
+            "type": "query",
+            "description": "Filter by CIK. Leave blank to get the full list."
+          }
+        ]
+      },
+      "docs": "Get a list of well-known institutional investors. Currently support 60+ profiles."
+    },
+    {
+      "info": {
+        "name": "Institutional Portfolio",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/institutional/portfolio",
+        "params": [
+          {
+            "name": "cik",
+            "value": "",
+            "type": "query",
+            "description": "Fund's CIK."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date <code>YYYY-MM-DD</code>."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date <code>YYYY-MM-DD</code>."
+          }
+        ]
+      },
+      "docs": "Get the holdings/portfolio data of institutional investors from 13-F filings. Limit to 1 year of data at a time. You can get a list of supported CIK <a href=\"/api/v1/institutional/list?token=\" target=\"_blank\">here</a>."
+    },
+    {
+      "info": {
+        "name": "Institutional Ownership",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/institutional/ownership",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Filter by symbol."
+          },
+          {
+            "name": "cusip",
+            "value": "",
+            "type": "query",
+            "description": "Filter by CUSIP."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date <code>YYYY-MM-DD</code>."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date <code>YYYY-MM-DD</code>."
+          }
+        ]
+      },
+      "docs": "Get a list institutional investors' positions for a particular stock overtime. Data from 13-F filings. Limit to 1 year of data at a time."
+    },
+    {
+      "info": {
+        "name": "Ownership",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/ownership",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "Limit number of results. Leave empty to get the full list."
+          }
+        ]
+      },
+      "docs": "Get a full list of shareholders of a company in descending order of the number of shares held. Data is sourced from <code>13F form</code>, <code>Schedule 13D</code> and <code>13G</code> for US market, <code>UK Share Register</code> for UK market, <code>SEDI</code> for Canadian market and equivalent filings for other international markets."
+    },
+    {
+      "info": {
+        "name": "Fund Ownership",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/fund-ownership",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "Limit number of results. Leave empty to get the full list."
+          }
+        ]
+      },
+      "docs": "Get a full list fund and institutional investors of a company in descending order of the number of shares held. Data is sourced from <code>13F form</code>, <code>Schedule 13D</code> and <code>13G</code> for US market, <code>UK Share Register</code> for UK market, <code>SEDI</code> for Canadian market and equivalent filings for other international markets."
+    },
+    {
+      "info": {
+        "name": "Insider Transactions",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/insider-transactions",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL. Leave this param blank to get the latest transactions."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date: 2020-03-15."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date: 2020-03-16."
+          }
+        ]
+      },
+      "docs": "Company insider transactions data sourced from <code>Form 3,4,5</code>, SEDI and relevant companies' filings. This endpoint covers US, UK, Canada, Australia, India, and all major EU markets. Limit to 100 transactions per API call."
+    },
+    {
+      "info": {
+        "name": "Insider Sentiment",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/insider-sentiment",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date: 2020-03-15."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date: 2020-03-16."
+          }
+        ]
+      },
+      "docs": "Get insider sentiment data for US companies calculated using method discussed <a href=\"https://medium.com/@stock-api/finnhub-insiders-sentiment-analysis-cc43f9f64b3a\" target=\"_blank\">here</a>. The MSPR ranges from -100 for the most negative to 100 for the most positive which can signal price changes in the coming 30-90 days."
+    },
+    {
+      "info": {
+        "name": "Financial Statements",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/financials",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          },
+          {
+            "name": "statement",
+            "value": "",
+            "type": "query",
+            "description": "Statement can take 1 of these values <code>bs, ic, cf</code> for Balance Sheet, Income Statement, Cash Flow respectively."
+          },
+          {
+            "name": "freq",
+            "value": "",
+            "type": "query",
+            "description": "Frequency can take 1 of these values <code>annual, quarterly, ttm, ytd</code>.  TTM (Trailing Twelve Months) option is available for Income Statement and Cash Flow. YTD (Year To Date) option is only available for Cash Flow."
+          },
+          {
+            "name": "preliminary",
+            "value": "",
+            "type": "query",
+            "description": "If set to <code>true</code>, it will return Preliminary financial statements for the latest period which are usually available within an hour of the earnings announcement if finalized data is not available yet. This preliminary data is currently available for US companies. You will see <code>\"preliminary\": true</code> in the data if that period is using preliminary data."
+          }
+        ]
+      },
+      "docs": "<p>Get standardized balance sheet, income statement and cash flow for global companies going back 30+ years. Data is sourced from original filings most of which made available through <a href=\"#filings\">SEC Filings</a> and <a href=\"#international-filings\">International Filings</a> endpoints.</p><p>Set <code>preliminary</code> param to true for faster updates for US companies.</p><p><i>Wondering why our standardized data is different from Bloomberg, Reuters, Factset, S&P or Yahoo Finance ? Check "
+    },
+    {
+      "info": {
+        "name": "Financials As Reported",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/financials-reported",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol."
+          },
+          {
+            "name": "cik",
+            "value": "",
+            "type": "query",
+            "description": "CIK."
+          },
+          {
+            "name": "accessNumber",
+            "value": "",
+            "type": "query",
+            "description": "Access number of a specific report you want to retrieve financials from."
+          },
+          {
+            "name": "freq",
+            "value": "",
+            "type": "query",
+            "description": "Frequency. Can be either <code>annual</code> or <code>quarterly</code>. Default to <code>annual</code>."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date <code>YYYY-MM-DD</code>. Filter for endDate."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date <code>YYYY-MM-DD</code>. Filter for endDate."
+          }
+        ]
+      },
+      "docs": "Get financials as reported. This data is available for bulk download on <a href=\"https://www.kaggle.com/finnhub/reported-financials\" target=\"_blank\">Kaggle SEC Financials database</a>."
+    },
+    {
+      "info": {
+        "name": "Revenue Breakdown",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/revenue-breakdown",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol."
+          },
+          {
+            "name": "cik",
+            "value": "",
+            "type": "query",
+            "description": "CIK."
+          }
+        ]
+      },
+      "docs": "<p>Get revenue breakdown as-reporetd by product and geography. Users on personal plans can access data for US companies which disclose their revenue breakdown in the annual or quarterly reports.</p><p>Global standardized revenue breakdown/segments data is available for Enterprise users. <a href=\"mailto:support@finnhub.io\">Contact us</a> to inquire about the access for Global standardized data.</p>"
+    },
+    {
+      "info": {
+        "name": "SEC Filings",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/filings",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol. Leave <code>symbol</code>,<code>cik</code> and <code>accessNumber</code> empty to list latest filings."
+          },
+          {
+            "name": "cik",
+            "value": "",
+            "type": "query",
+            "description": "CIK."
+          },
+          {
+            "name": "accessNumber",
+            "value": "",
+            "type": "query",
+            "description": "Access number of a specific report you want to retrieve data from."
+          },
+          {
+            "name": "form",
+            "value": "",
+            "type": "query",
+            "description": "Filter by form. You can use this value <code>NT 10-K</code> to find non-timely filings for a company."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date: 2023-03-15."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date: 2023-03-16."
+          }
+        ]
+      },
+      "docs": "List company's filing. Limit to 250 documents at a time. This data is available for bulk download on <a href=\"https://www.kaggle.com/finnhub/sec-filings\" target=\"_blank\">Kaggle SEC Filings database</a>."
+    },
+    {
+      "info": {
+        "name": "SEC Sentiment Analysis",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/filings-sentiment",
+        "params": [
+          {
+            "name": "accessNumber",
+            "value": "",
+            "type": "query",
+            "description": "Access number of a specific report you want to retrieve data from."
+          }
+        ]
+      },
+      "docs": "Get sentiment analysis of 10-K and 10-Q filings from SEC. An abnormal increase in the number of positive/negative words in filings can signal a significant change in the company's stock price in the upcoming 4 quarters. We make use of <a href= \"https://sraf.nd.edu/textual-analysis/resources/\" target=\"_blank\">Loughran and McDonald Sentiment Word Lists</a> to calculate the sentiment for each filing."
+    },
+    {
+      "info": {
+        "name": "Similarity Index",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/similarity-index",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol. Required if cik is empty"
+          },
+          {
+            "name": "cik",
+            "value": "",
+            "type": "query",
+            "description": "CIK. Required if symbol is empty"
+          },
+          {
+            "name": "freq",
+            "value": "",
+            "type": "query",
+            "description": "<code>annual</code> or <code>quarterly</code>. Default to <code>annual</code>"
+          }
+        ]
+      },
+      "docs": "<p>Calculate the textual difference between a company's 10-K / 10-Q reports and the same type of report in the previous year using Cosine Similarity. For example, this endpoint compares 2019's 10-K with 2018's 10-K. Companies breaking from its routines in disclosure of financial condition and risk analysis section can signal a significant change in the company's stock price in the upcoming 4 quarters.</p>"
+    },
+    {
+      "info": {
+        "name": "IPO Calendar",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/calendar/ipo",
+        "params": [
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date: 2020-03-15."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date: 2020-03-16."
+          }
+        ]
+      },
+      "docs": "Get recent and upcoming IPO."
+    },
+    {
+      "info": {
+        "name": "Sector Metrics",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/sector/metrics",
+        "params": [
+          {
+            "name": "region",
+            "value": "",
+            "type": "query",
+            "description": "Region. A list of supported values for this field can be found <a href=\"https://docs.google.com/spreadsheets/d/1afedyv7yWJ-z7pMjaAZK-f6ENY3mI3EBCk95QffpoHw/edit?usp=sharing\" target=\"_blank\">here</a>."
+          }
+        ]
+      },
+      "docs": "Get ratios for different sectors and regions/indices."
+    },
+    {
+      "info": {
+        "name": "Dividends",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/dividend",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "YYYY-MM-DD."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "YYYY-MM-DD."
+          }
+        ]
+      },
+      "docs": "Get dividends data for common stocks going back 30 years."
+    },
+    {
+      "info": {
+        "name": "Recommendation Trends",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/recommendation",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          }
+        ]
+      },
+      "docs": "Get latest analyst recommendation trends for a company."
+    },
+    {
+      "info": {
+        "name": "Price Target",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/price-target",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          }
+        ]
+      },
+      "docs": "Get latest price target consensus."
+    },
+    {
+      "info": {
+        "name": "Stock Upgrade/Downgrade",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/upgrade-downgrade",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL. If left blank, the API will return latest stock upgrades/downgrades."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date: 2000-03-15."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date: 2020-03-16."
+          }
+        ]
+      },
+      "docs": "Get latest stock upgrade and downgrade."
+    },
+    {
+      "info": {
+        "name": "Revenue Estimates",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/revenue-estimate",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          },
+          {
+            "name": "freq",
+            "value": "",
+            "type": "query",
+            "description": "Can take 1 of the following values: <code>annual, quarterly</code>. Default to <code>quarterly</code>"
+          }
+        ]
+      },
+      "docs": "Get company's revenue estimates."
+    },
+    {
+      "info": {
+        "name": "EBITDA Estimates",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/ebitda-estimate",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          },
+          {
+            "name": "freq",
+            "value": "",
+            "type": "query",
+            "description": "Can take 1 of the following values: <code>annual, quarterly</code>. Default to <code>quarterly</code>"
+          }
+        ]
+      },
+      "docs": "Get company's ebitda estimates."
+    },
+    {
+      "info": {
+        "name": "EBIT Estimates",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/ebit-estimate",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          },
+          {
+            "name": "freq",
+            "value": "",
+            "type": "query",
+            "description": "Can take 1 of the following values: <code>annual, quarterly</code>. Default to <code>quarterly</code>"
+          }
+        ]
+      },
+      "docs": "Get company's ebit estimates."
+    },
+    {
+      "info": {
+        "name": "Net Income Estimates",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/net-income-estimate",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          },
+          {
+            "name": "freq",
+            "value": "",
+            "type": "query",
+            "description": "Can take 1 of the following values: <code>annual, quarterly</code>. Default to <code>quarterly</code>"
+          }
+        ]
+      },
+      "docs": "Get company's net income estimates."
+    },
+    {
+      "info": {
+        "name": "Pretax Income Estimates",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/pretax-income-estimate",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          },
+          {
+            "name": "freq",
+            "value": "",
+            "type": "query",
+            "description": "Can take 1 of the following values: <code>annual, quarterly</code>. Default to <code>quarterly</code>"
+          }
+        ]
+      },
+      "docs": "Get company's pretax income estimates."
+    },
+    {
+      "info": {
+        "name": "Gross Income Estimates",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/gross-income-estimate",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          },
+          {
+            "name": "freq",
+            "value": "",
+            "type": "query",
+            "description": "Can take 1 of the following values: <code>annual, quarterly</code>. Default to <code>quarterly</code>"
+          }
+        ]
+      },
+      "docs": "Get company's gross income estimates."
+    },
+    {
+      "info": {
+        "name": "DPS Estimates",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/dps-estimate",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          },
+          {
+            "name": "freq",
+            "value": "",
+            "type": "query",
+            "description": "Can take 1 of the following values: <code>annual, quarterly</code>. Default to <code>quarterly</code>"
+          }
+        ]
+      },
+      "docs": "Get company's Dividend per Share estimates."
+    },
+    {
+      "info": {
+        "name": "FCF Estimates",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/fcf-estimate",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          },
+          {
+            "name": "freq",
+            "value": "",
+            "type": "query",
+            "description": "Can take 1 of the following values: <code>annual, quarterly</code>. Default to <code>quarterly</code>"
+          }
+        ]
+      },
+      "docs": "Get company's free cash flow estimates."
+    },
+    {
+      "info": {
+        "name": "Capex Estimates",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/capex-estimate",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          },
+          {
+            "name": "freq",
+            "value": "",
+            "type": "query",
+            "description": "Can take 1 of the following values: <code>annual, quarterly</code>. Default to <code>quarterly</code>"
+          }
+        ]
+      },
+      "docs": "Get company's capital expenditure estimates."
+    },
+    {
+      "info": {
+        "name": "OCF Estimates",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/ocf-estimate",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          },
+          {
+            "name": "freq",
+            "value": "",
+            "type": "query",
+            "description": "Can take 1 of the following values: <code>annual, quarterly</code>. Default to <code>quarterly</code>"
+          }
+        ]
+      },
+      "docs": "Get company's operating cash flow estimates."
+    },
+    {
+      "info": {
+        "name": "Earnings Estimates",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/eps-estimate",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          },
+          {
+            "name": "freq",
+            "value": "",
+            "type": "query",
+            "description": "Can take 1 of the following values: <code>annual, quarterly</code>. Default to <code>quarterly</code>"
+          }
+        ]
+      },
+      "docs": "Get company's EPS estimates."
+    },
+    {
+      "info": {
+        "name": "Earnings Surprises",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/earnings",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "Limit number of period returned. Leave blank to get the full history."
+          }
+        ]
+      },
+      "docs": "Get company historical quarterly earnings surprise going back to 2000."
+    },
+    {
+      "info": {
+        "name": "Earnings Calendar",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/calendar/earnings",
+        "params": [
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date: 2020-03-15."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date: 2020-03-16."
+          },
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Filter by symbol: AAPL."
+          },
+          {
+            "name": "international",
+            "value": "",
+            "type": "query",
+            "description": "Set to <code>true</code> to include international markets. Default value is <code>false</code>"
+          }
+        ]
+      },
+      "docs": "Get historical and coming earnings release. EPS and Revenue in this endpoint are non-GAAP, which means they are adjusted to exclude some one-time or unusual items. This is the same data investors usually react to and talked about on the media. Estimates are sourced from both sell-side and buy-side analysts."
+    },
+    {
+      "info": {
+        "name": "Quote",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/quote",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol"
+          }
+        ]
+      },
+      "docs": "<p>Get real-time quote data for US stocks. Constant polling is not recommended. Use websocket if you need real-time updates.</p><p>Real-time stock prices for international markets are supported for Enterprise clients via our partner's feed. <a href=\"mailto:support@finnhub.io\">Contact Us</a> to learn more.</p>"
+    },
+    {
+      "info": {
+        "name": "Stock Candles",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/candle",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol."
+          },
+          {
+            "name": "resolution",
+            "value": "",
+            "type": "query",
+            "description": "Supported resolution includes <code>1, 5, 15, 30, 60, D, W, M </code>.Some timeframes might not be available depending on the exchange."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "UNIX timestamp. Interval initial value."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "UNIX timestamp. Interval end value."
+          }
+        ]
+      },
+      "docs": "<p>Get candlestick data (OHLCV) for stocks.</p><p>Daily data will be adjusted for Splits. Intraday data will remain unadjusted. Only 1 month of intraday will be returned at a time. If you need more historical intraday data, please use the from and to params iteratively to request more data.</p>"
+    },
+    {
+      "info": {
+        "name": "Tick Data",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/tick",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol."
+          },
+          {
+            "name": "date",
+            "value": "",
+            "type": "query",
+            "description": "Date: 2020-04-02."
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "Limit number of ticks returned. Maximum value: <code>25000</code>"
+          },
+          {
+            "name": "skip",
+            "value": "",
+            "type": "query",
+            "description": "Number of ticks to skip. Use this parameter to loop through the entire data."
+          }
+        ]
+      },
+      "docs": "<p>Get historical tick data for global exchanges.</p><p>For more historical tick data, you can visit our bulk download page in the Dashboard <a target=\"_blank\" href=\"/dashboard/download\",>here</a> to speed up the download process.</p><table class=\"table table-hover\">\n  <thead>\n    <tr>\n      <th>Exchange</th>\n      <th>Segment</th>\n      <th>Delay</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td class=\"text-blue\">US CTA/UTP</th>\n      <td>Full SIP</td>\n      <td>End-of-day</td>\n    </tr>\n "
+    },
+    {
+      "info": {
+        "name": "Historical NBBO",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/bbo",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol."
+          },
+          {
+            "name": "date",
+            "value": "",
+            "type": "query",
+            "description": "Date: 2020-04-02."
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "Limit number of ticks returned. Maximum value: <code>25000</code>"
+          },
+          {
+            "name": "skip",
+            "value": "",
+            "type": "query",
+            "description": "Number of ticks to skip. Use this parameter to loop through the entire data."
+          }
+        ]
+      },
+      "docs": "<p>Get historical best bid and offer for US stocks, LSE, TSX, Euronext and Deutsche Borse.</p><p>For US market, this endpoint only serves historical NBBO from the beginning of 2023. To download more historical data, please visit our bulk download page in the Dashboard <a target=\"_blank\" href=\"/dashboard/download\",>here</a>.</p>"
+    },
+    {
+      "info": {
+        "name": "Last Bid-Ask",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/bidask",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol."
+          }
+        ]
+      },
+      "docs": "Get last bid/ask data for US stocks."
+    },
+    {
+      "info": {
+        "name": "Splits",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/split",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "YYYY-MM-DD."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "YYYY-MM-DD."
+          }
+        ]
+      },
+      "docs": "Get splits data for stocks."
+    },
+    {
+      "info": {
+        "name": "Dividends 2 (Basic)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/dividend2",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol."
+          }
+        ]
+      },
+      "docs": "Get global dividends data."
+    },
+    {
+      "info": {
+        "name": "Indices Constituents",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/index/constituents",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "symbol"
+          }
+        ]
+      },
+      "docs": "Get a list of index's constituents. A list of supported indices for this endpoint can be found <a href=\"/api/v1/index/list?token=\" target=\"_blank\">here</a>."
+    },
+    {
+      "info": {
+        "name": "Indices Historical Constituents",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/index/historical-constituents",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "symbol"
+          }
+        ]
+      },
+      "docs": "Get full history of index's constituents including symbols and dates of joining and leaving the Index. A list of supported indices for this endpoint can be found <a href=\"/api/v1/index/historical-list?token=\" target=\"_blank\">here</a>."
+    },
+    {
+      "info": {
+        "name": "ETFs Profile",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/etf/profile",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "ETF symbol."
+          },
+          {
+            "name": "isin",
+            "value": "",
+            "type": "query",
+            "description": "ETF isin."
+          }
+        ]
+      },
+      "docs": "Get ETF profile information. This endpoint has global coverage. A list of supported ETFs can be found <a href=\"/api/v1/etf/list?type=csv&token=\" target=\"_blank\">here</a>."
+    },
+    {
+      "info": {
+        "name": "ETFs Holdings",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/etf/holdings",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "ETF symbol."
+          },
+          {
+            "name": "isin",
+            "value": "",
+            "type": "query",
+            "description": "ETF isin."
+          },
+          {
+            "name": "skip",
+            "value": "",
+            "type": "query",
+            "description": "Skip the first n results. You can use this parameter to query historical constituents data. The latest result is returned if skip=0 or not set."
+          },
+          {
+            "name": "date",
+            "value": "",
+            "type": "query",
+            "description": "Query holdings by date. You can use either this param or <code>skip</code> param, not both."
+          }
+        ]
+      },
+      "docs": "Get full ETF holdings/constituents. This endpoint has global coverage. Widget only shows top 10 holdings. A list of supported ETFs can be found <a href=\"/api/v1/etf/list?token=\" target=\"_blank\">here</a>."
+    },
+    {
+      "info": {
+        "name": "ETFs Sector Exposure",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/etf/sector",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "ETF symbol."
+          },
+          {
+            "name": "isin",
+            "value": "",
+            "type": "query",
+            "description": "ETF isin."
+          }
+        ]
+      },
+      "docs": "Get ETF sector exposure data."
+    },
+    {
+      "info": {
+        "name": "ETFs Country Exposure",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/etf/country",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "ETF symbol."
+          },
+          {
+            "name": "isin",
+            "value": "",
+            "type": "query",
+            "description": "ETF isin."
+          }
+        ]
+      },
+      "docs": "Get ETF country exposure data."
+    },
+    {
+      "info": {
+        "name": "ETFs Equity Allocation",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/etf/allocation",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "ETF symbol."
+          },
+          {
+            "name": "isin",
+            "value": "",
+            "type": "query",
+            "description": "ETF isin."
+          }
+        ]
+      },
+      "docs": "Get ETF equity allocation based on the characteristics of the holdings."
+    },
+    {
+      "info": {
+        "name": "Mutual Funds Profile",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/mutual-fund/profile",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Fund's symbol."
+          },
+          {
+            "name": "isin",
+            "value": "",
+            "type": "query",
+            "description": "Fund's isin."
+          }
+        ]
+      },
+      "docs": "Get mutual funds profile information. This endpoint covers both US and global mutual funds. For international funds, you must query the data using ISIN. A list of supported funds can be found <a href=\"/api/v1/mutual-fund/list?type=csv&token=\" target=\"_blank\">here</a>."
+    },
+    {
+      "info": {
+        "name": "Mutual Funds Holdings",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/mutual-fund/holdings",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Fund's symbol."
+          },
+          {
+            "name": "isin",
+            "value": "",
+            "type": "query",
+            "description": "Fund's isin."
+          },
+          {
+            "name": "skip",
+            "value": "",
+            "type": "query",
+            "description": "Skip the first n results. You can use this parameter to query historical constituents data. The latest result is returned if skip=0 or not set."
+          }
+        ]
+      },
+      "docs": "Get full Mutual Funds holdings/constituents. This endpoint covers both US and global mutual funds. For international funds, you must query the data using ISIN. A list of supported funds can be found <a href=\"/api/v1/mutual-fund/list?token=\" target=\"_blank\">here</a>."
+    },
+    {
+      "info": {
+        "name": "Mutual Funds Sector Exposure",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/mutual-fund/sector",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Mutual Fund symbol."
+          },
+          {
+            "name": "isin",
+            "value": "",
+            "type": "query",
+            "description": "Fund's isin."
+          }
+        ]
+      },
+      "docs": "Get Mutual Funds sector exposure data."
+    },
+    {
+      "info": {
+        "name": "Mutual Funds Country Exposure",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/mutual-fund/country",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol."
+          },
+          {
+            "name": "isin",
+            "value": "",
+            "type": "query",
+            "description": "Fund's isin."
+          }
+        ]
+      },
+      "docs": "Get Mutual Funds country exposure data."
+    },
+    {
+      "info": {
+        "name": "Mutual Funds EET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/mutual-fund/eet",
+        "params": [
+          {
+            "name": "isin",
+            "value": "",
+            "type": "query",
+            "description": "ISIN."
+          }
+        ]
+      },
+      "docs": "Get EET data for EU funds. For PAIs data, please see the EET PAI endpoint."
+    },
+    {
+      "info": {
+        "name": "Mutual Funds EET PAI",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/mutual-fund/eet-pai",
+        "params": [
+          {
+            "name": "isin",
+            "value": "",
+            "type": "query",
+            "description": "ISIN."
+          }
+        ]
+      },
+      "docs": "Get EET PAI data for EU funds."
+    },
+    {
+      "info": {
+        "name": "Forex Exchanges",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/forex/exchange"
+      },
+      "docs": "List supported forex exchanges"
+    },
+    {
+      "info": {
+        "name": "Forex Symbol",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/forex/symbol",
+        "params": [
+          {
+            "name": "exchange",
+            "value": "",
+            "type": "query",
+            "description": "Exchange you want to get the list of symbols from."
+          }
+        ]
+      },
+      "docs": "List supported forex symbols."
+    },
+    {
+      "info": {
+        "name": "Forex Candles",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/forex/candle",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Use symbol returned in <code>/forex/symbol</code> endpoint for this field."
+          },
+          {
+            "name": "resolution",
+            "value": "",
+            "type": "query",
+            "description": "Supported resolution includes <code>1, 5, 15, 30, 60, D, W, M </code>.Some timeframes might not be available depending on the exchange."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "UNIX timestamp. Interval initial value."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "UNIX timestamp. Interval end value."
+          }
+        ]
+      },
+      "docs": "Get candlestick data for forex symbols."
+    },
+    {
+      "info": {
+        "name": "Forex rates",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/forex/rates",
+        "params": [
+          {
+            "name": "base",
+            "value": "",
+            "type": "query",
+            "description": "Base currency. Default to EUR."
+          },
+          {
+            "name": "date",
+            "value": "",
+            "type": "query",
+            "description": "Date. Leave blank to get the latest data."
+          }
+        ]
+      },
+      "docs": "Get rates for all forex pairs. Ideal for currency conversion"
+    },
+    {
+      "info": {
+        "name": "Crypto Exchanges",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/crypto/exchange"
+      },
+      "docs": "List supported crypto exchanges"
+    },
+    {
+      "info": {
+        "name": "Crypto Symbol",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/crypto/symbol",
+        "params": [
+          {
+            "name": "exchange",
+            "value": "",
+            "type": "query",
+            "description": "Exchange you want to get the list of symbols from."
+          }
+        ]
+      },
+      "docs": "List supported crypto symbols by exchange"
+    },
+    {
+      "info": {
+        "name": "Crypto Profile",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/crypto/profile",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Crypto symbol such as BTC or ETH."
+          }
+        ]
+      },
+      "docs": "Get crypto's profile."
+    },
+    {
+      "info": {
+        "name": "Crypto Candles",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/crypto/candle",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Use symbol returned in <code>/crypto/symbol</code> endpoint for this field."
+          },
+          {
+            "name": "resolution",
+            "value": "",
+            "type": "query",
+            "description": "Supported resolution includes <code>1, 5, 15, 30, 60, D, W, M </code>.Some timeframes might not be available depending on the exchange."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "UNIX timestamp. Interval initial value."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "UNIX timestamp. Interval end value."
+          }
+        ]
+      },
+      "docs": "Get candlestick data for crypto symbols."
+    },
+    {
+      "info": {
+        "name": "Pattern Recognition",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/scan/pattern",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol"
+          },
+          {
+            "name": "resolution",
+            "value": "",
+            "type": "query",
+            "description": "Supported resolution includes <code>1, 5, 15, 30, 60, D, W, M </code>.Some timeframes might not be available depending on the exchange."
+          }
+        ]
+      },
+      "docs": "Run pattern recognition algorithm on a symbol. Support double top/bottom, triple top/bottom, head and shoulders, triangle, wedge, channel, flag, and candlestick patterns."
+    },
+    {
+      "info": {
+        "name": "Support/Resistance",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/scan/support-resistance",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol"
+          },
+          {
+            "name": "resolution",
+            "value": "",
+            "type": "query",
+            "description": "Supported resolution includes <code>1, 5, 15, 30, 60, D, W, M </code>.Some timeframes might not be available depending on the exchange."
+          }
+        ]
+      },
+      "docs": "Get support and resistance levels for a symbol."
+    },
+    {
+      "info": {
+        "name": "Aggregate Indicators",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/scan/technical-indicator",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "symbol"
+          },
+          {
+            "name": "resolution",
+            "value": "",
+            "type": "query",
+            "description": "Supported resolution includes <code>1, 5, 15, 30, 60, D, W, M </code>.Some timeframes might not be available depending on the exchange."
+          }
+        ]
+      },
+      "docs": "Get aggregate signal of multiple technical indicators such as MACD, RSI, Moving Average v.v. A full list of indicators can be found <a href=\"https://docs.google.com/spreadsheets/d/1MWuy0WuT2yVlxr1KbPdggVygMZtJfunDnhe-C0GEXYM/edit?usp=sharing\" target=\"_blank\">here</a>."
+    },
+    {
+      "info": {
+        "name": "Technical Indicators",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/indicator",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "symbol"
+          },
+          {
+            "name": "resolution",
+            "value": "",
+            "type": "query",
+            "description": "Supported resolution includes <code>1, 5, 15, 30, 60, D, W, M </code>.Some timeframes might not be available depending on the exchange."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "UNIX timestamp. Interval initial value."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "UNIX timestamp. Interval end value."
+          },
+          {
+            "name": "indicator",
+            "value": "",
+            "type": "query",
+            "description": "Indicator name. Full list can be found <a href=\"https://docs.google.com/spreadsheets/d/1ylUvKHVYN2E87WdwIza8ROaCpd48ggEl1k5i5SgA29k/edit?usp=sharing\" target=\"_blank\">here</a>."
+          }
+        ]
+      },
+      "docs": "Return technical indicator with price data. List of supported indicators can be found <a href=\"https://docs.google.com/spreadsheets/d/1ylUvKHVYN2E87WdwIza8ROaCpd48ggEl1k5i5SgA29k/edit?usp=sharing\" target=\"_blank\">here</a>."
+    },
+    {
+      "info": {
+        "name": "Earnings Call Transcripts List",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/transcripts/list",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Company symbol: AAPL. Leave empty to list the latest transcripts"
+          }
+        ]
+      },
+      "docs": "List earnings call transcripts' metadata. This endpoint is available for Global companies. You can get a list of supported symbols <a target=\"_blank\" href=\"/api/v1/stock/transcripts/symbol?token=\">here</a>"
+    },
+    {
+      "info": {
+        "name": "Earnings Call Transcripts",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/transcripts",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "query",
+            "description": "Transcript's id obtained with <a href=\"#transcripts-list\">Transcripts List endpoint</a>."
+          }
+        ]
+      },
+      "docs": "<p>Get earnings call transcripts, audio and participants' list. Data is available for US, UK, European, Australian and Canadian companies.<p>15+ years of data is available with 220,000+ audio which add up to 7TB in size.</p>"
+    },
+    {
+      "info": {
+        "name": "Earnings Call Audio Live",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/earnings-call-live",
+        "params": [
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date <code>YYYY-MM-DD</code>."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date <code>YYYY-MM-DD</code>."
+          },
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Filter by symbol: AAPL."
+          }
+        ]
+      },
+      "docs": "<p>Stream live earnings calls with data provided in the calendar. The data will be available in m3u8 format. mp3 files will be available once the calls finish in the <code>recording</code> field.</p>"
+    },
+    {
+      "info": {
+        "name": "Company Presentation",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/presentation",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Company symbol."
+          }
+        ]
+      },
+      "docs": "<p>Get presentations/slides data in PDF format that are usually used during earnings calls. You can get a list of supported symbols <a target=\"_blank\" href=\"/api/v1/stock/presentation/symbol?token=\">here</a></p>"
+    },
+    {
+      "info": {
+        "name": "Social Sentiment",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/social-sentiment",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Company symbol."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date <code>YYYY-MM-DD</code>."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date <code>YYYY-MM-DD</code>."
+          }
+        ]
+      },
+      "docs": "<p>Get social sentiment for stocks on Reddit and Twitter.</p>"
+    },
+    {
+      "info": {
+        "name": "Investment Themes (Thematic Investing)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/investment-theme",
+        "params": [
+          {
+            "name": "theme",
+            "value": "",
+            "type": "query",
+            "description": "Investment theme. A full list of themes supported can be found <a target=\"_blank\" href=\"https://docs.google.com/spreadsheets/d/1ULj9xDh4iPoQj279M084adZ2_S852ttRthKKJ7madYc/edit?usp=sharing\">here</a>."
+          }
+        ]
+      },
+      "docs": "<p>Thematic investing involves creating a portfolio (or portion of a portfolio) by gathering together a collection of companies involved in certain areas that you predict will generate above-market returns over the long term. Themes can be based on a concept such as ageing populations or a sub-sector such as robotics, and drones. Thematic investing focuses on predicted long-term trends rather than specific companies or sectors, enabling investors to access structural, one-off shifts that can cha"
+    },
+    {
+      "info": {
+        "name": "Supply Chain Relationships",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/supply-chain",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol."
+          }
+        ]
+      },
+      "docs": "<p>This endpoint provides an overall map of public companies' key customers and suppliers. The data offers a deeper look into a company's supply chain and how products are created. The data will help investors manage risk, limit exposure or generate alpha-generating ideas and trading insights.</p>"
+    },
+    {
+      "info": {
+        "name": "Company ESG Scores",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/esg",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol."
+          }
+        ]
+      },
+      "docs": "<p>This endpoint provides the latest ESG scores and important indicators for 7000+ global companies. The data is collected through company's public ESG disclosure and public sources.</p><p>Our ESG scoring models takes into account more than 150 different inputs to calculate the level of ESG risks and how well a company is managing them. A higher score means lower ESG risk or better ESG management. ESG scores are in the the range of 0-100. Some key indicators might contain letter-grade score from"
+    },
+    {
+      "info": {
+        "name": "Historical ESG Scores",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/historical-esg",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol."
+          }
+        ]
+      },
+      "docs": "<p>This endpoint provides historical ESG scores and important indicators for 7000+ global companies. The data is collected through company's public ESG disclosure and public sources.</p><p>Our ESG scoring models takes into account more than 150 different inputs to calculate the level of ESG risks and how well a company is managing them. A higher score means lower ESG risk or better ESG management. ESG scores are in the the range of 0-100. Some key indicators might contain letter-grade score from"
+    },
+    {
+      "info": {
+        "name": "Company Earnings Quality Score",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/earnings-quality-score",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol."
+          },
+          {
+            "name": "freq",
+            "value": "",
+            "type": "query",
+            "description": "Frequency. Currently support <code>annual</code> and <code>quarterly</code>"
+          }
+        ]
+      },
+      "docs": "<p>This endpoint provides Earnings Quality Score for global companies.</p><p> Earnings quality refers to the extent to which current earnings predict future earnings. \"High-quality\" earnings are expected to persist, while \"low-quality\" earnings do not. A higher score means a higher earnings quality</p><p>Finnhub uses a proprietary model which takes into consideration 4 criteria:</p> <ul style=\"list-style-type: unset; margin-left: 30px;\"><li>Profitability</li><li>Growth</li><li>Cash Generation & "
+    },
+    {
+      "info": {
+        "name": "COVID-19",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/covid19/us"
+      },
+      "docs": "Get real-time updates on the number of COVID-19 (Corona virus) cases in the US with a state-by-state breakdown. Data is sourced from CDC and reputable sources. You can also access this API <a href=\"https://rapidapi.com/Finnhub/api/finnhub-real-time-covid-19\" target=\"_blank\" rel=\"nofollow\">here</a>"
+    },
+    {
+      "info": {
+        "name": "FDA Committee Meeting Calendar",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/fda-advisory-committee-calendar"
+      },
+      "docs": "FDA's advisory committees are established to provide functions which support the agency's mission of protecting and promoting the public health, while meeting the requirements set forth in the Federal Advisory Committee Act. Committees are either mandated by statute or established at the discretion of the Department of Health and Human Services. Each committee is subject to renewal at two-year intervals unless the committee charter states otherwise."
+    },
+    {
+      "info": {
+        "name": "USPTO Patents",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/uspto-patent",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date <code>YYYY-MM-DD</code>."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date <code>YYYY-MM-DD</code>."
+          }
+        ]
+      },
+      "docs": "List USPTO patents for companies. Limit to 250 records per API call."
+    },
+    {
+      "info": {
+        "name": "H1-B Visa Application",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/visa-application",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date <code>YYYY-MM-DD</code>. Filter on the <code>beginDate</code> column."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date <code>YYYY-MM-DD</code>. Filter on the <code>beginDate</code> column."
+          }
+        ]
+      },
+      "docs": "Get a list of H1-B and Permanent visa applications for companies from the DOL. The data is updated quarterly."
+    },
+    {
+      "info": {
+        "name": "Senate Lobbying",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/lobbying",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date <code>YYYY-MM-DD</code>."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date <code>YYYY-MM-DD</code>."
+          }
+        ]
+      },
+      "docs": "Get a list of reported lobbying activities in the Senate and the House."
+    },
+    {
+      "info": {
+        "name": "USA Spending",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/usa-spending",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date <code>YYYY-MM-DD</code>. Filter for <code>actionDate</code>"
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date <code>YYYY-MM-DD</code>. Filter for <code>actionDate</code>"
+          }
+        ]
+      },
+      "docs": "<p>Get a list of government's spending activities from USASpending dataset for public companies. This dataset can help you identify companies that win big government contracts which is extremely important for industries such as Defense, Aerospace, and Education. Only recent data is available via the API.</p><p>For historical data, you can download it here: <a href=\"/api/v1/stock/usa-spending?fileId=before_2021&token=\" target=\"_blank\">Pre-2021</a>, <a href=\"/api/v1/stock/usa-spending?fileId=2021&"
+    },
+    {
+      "info": {
+        "name": "Congressional Trading",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/congressional-trading",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol of the company: AAPL."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date <code>YYYY-MM-DD</code>."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date <code>YYYY-MM-DD</code>."
+          }
+        ]
+      },
+      "docs": "Get stock trades data disclosed by members of congress."
+    },
+    {
+      "info": {
+        "name": "Bond Profile",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/bond/profile",
+        "params": [
+          {
+            "name": "isin",
+            "value": "",
+            "type": "query",
+            "description": "ISIN"
+          },
+          {
+            "name": "cusip",
+            "value": "",
+            "type": "query",
+            "description": "CUSIP"
+          },
+          {
+            "name": "figi",
+            "value": "",
+            "type": "query",
+            "description": "FIGI"
+          }
+        ]
+      },
+      "docs": "Get general information of a bond. You can query by FIGI, ISIN or CUSIP. A list of supported bonds can be found <a href=\"/api/v1/bond/list?type=csv&token=\" target=\"_blank\">here</a>."
+    },
+    {
+      "info": {
+        "name": "Bond price data",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/bond/price",
+        "params": [
+          {
+            "name": "isin",
+            "value": "",
+            "type": "query",
+            "description": "ISIN."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "UNIX timestamp. Interval initial value."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "UNIX timestamp. Interval end value."
+          }
+        ]
+      },
+      "docs": "<p>Get bond's price data. The following datasets are supported:</p><table class=\"table table-hover\">\n  <thead>\n    <tr>\n      <th>Exchange</th>\n      <th>Segment</th>\n      <th>Delay</th>\n    </tr>\n  </thead>\n  <tbody>\n  <tr>\n      <td class=\"text-blue\">US Government Bonds</td>\n      <td>Government Bonds</td>\n      <td>End-of-day</td>\n    </tr>\n    <tr>\n      <td class=\"text-blue\">FINRA Trace</td>\n      <td>BTDS: US Corporate Bonds</td>\n      <td>Delayed 4h</td>\n    </tr>\n    <tr>\n      <td clas"
+    },
+    {
+      "info": {
+        "name": "Bond Tick Data",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/bond/tick",
+        "params": [
+          {
+            "name": "isin",
+            "value": "",
+            "type": "query",
+            "description": "ISIN."
+          },
+          {
+            "name": "date",
+            "value": "",
+            "type": "query",
+            "description": "Date: 2020-04-02."
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "Limit number of ticks returned. Maximum value: <code>25000</code>"
+          },
+          {
+            "name": "skip",
+            "value": "",
+            "type": "query",
+            "description": "Number of ticks to skip. Use this parameter to loop through the entire data."
+          },
+          {
+            "name": "exchange",
+            "value": "",
+            "type": "query",
+            "description": "Currently support the following values: <code>trace</code>."
+          }
+        ]
+      },
+      "docs": "<p>Get trade-level data for bonds. The following datasets are supported:</p><table class=\"table table-hover\">\n  <thead>\n    <tr>\n      <th>Exchange</th>\n      <th>Segment</th>\n      <th>Delay</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td class=\"text-blue\">FINRA Trace</th>\n      <td>BTDS: US Corporate Bonds</td>\n      <td>Delayed 4h</td>\n    </tr>\n    <tr>\n      <td class=\"text-blue\">FINRA Trace</th>\n      <td>144A Bonds</td>\n      <td>Delayed 4h</td>\n    </tr>\n  </tbody>\n</table>"
+    },
+    {
+      "info": {
+        "name": "Bond Yield Curve",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/bond/yield-curve",
+        "params": [
+          {
+            "name": "code",
+            "value": "",
+            "type": "query",
+            "description": "Bond's code. You can find the list of supported code <a href=\"https://docs.google.com/spreadsheets/d/1iA-lM0Kht7lsQZ7Uu_s6r2i1BbQNUNO9eGkO5-zglHg/edit?usp=sharing\" target=\"_blank\" rel=\"noopener\">here</a>."
+          }
+        ]
+      },
+      "docs": "Get yield curve data for Treasury bonds."
+    },
+    {
+      "info": {
+        "name": "Bank Branch List",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/bank-branch",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol."
+          }
+        ]
+      },
+      "docs": "Retrieve list of US bank branches information for a given symbol."
+    },
+    {
+      "info": {
+        "name": "Airline Price Index",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/airline/price-index",
+        "params": [
+          {
+            "name": "airline",
+            "value": "",
+            "type": "query",
+            "description": "Filter data by airline. Accepted values: <code>united</code>,<code>delta</code>,<code>american_airlines</code>,<code>southwest</code>,<code>southern_airways_express</code>,<code>alaska_airlines</code>,<code>frontier_airlines</code>,<code>jetblue_airways</code>,<code>spirit_airlines</code>,<code>sun_country_airlines</code>,<code>breeze_airways</code>,<code>hawaiian_airlines</code>"
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date <code>YYYY-MM-DD</code>."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date <code>YYYY-MM-DD</code>."
+          }
+        ]
+      },
+      "docs": "<p>The Flight Ticket Price Index API provides comprehensive data on airline ticket prices, including the average daily ticket price and its percentage change (price index). This data, collected weekly and projected two weeks ahead, aggregates daily prices and indexes from the 50 busiest and largest airports across the USA. The dataset includes detailed information on airlines, dates, and average ticket prices, offering valuable insights for market analysis and pricing strategies.</p><p>The price"
+    },
+    {
+      "info": {
+        "name": "Country Metadata",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/country"
+      },
+      "docs": "List all countries and metadata."
+    },
+    {
+      "info": {
+        "name": "Economic Calendar",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/calendar/economic",
+        "params": [
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date <code>YYYY-MM-DD</code>."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date <code>YYYY-MM-DD</code>."
+          }
+        ]
+      },
+      "docs": "<p>Get recent and upcoming economic releases.</p><p>Historical events and surprises are available for Enterprise clients.</p>"
+    },
+    {
+      "info": {
+        "name": "Economic Code",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/economic/code"
+      },
+      "docs": "List codes of supported economic data."
+    },
+    {
+      "info": {
+        "name": "Economic Data",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/economic",
+        "params": [
+          {
+            "name": "code",
+            "value": "",
+            "type": "query",
+            "description": "Economic code."
+          }
+        ]
+      },
+      "docs": "Get economic data."
+    },
+    {
+      "info": {
+        "name": "International Filings",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/international-filings",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol. Leave empty to list latest filings."
+          },
+          {
+            "name": "country",
+            "value": "",
+            "type": "query",
+            "description": "Filter by country using country's 2-letter code."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From date: 2023-01-15."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To date: 2023-12-16."
+          }
+        ]
+      },
+      "docs": "List filings for international companies. Limit to 500 documents at a time. These are the documents we use to source our fundamental data. Enterprise clients who need access to the full filings for global markets should contact us for the access."
+    },
+    {
+      "info": {
+        "name": "Revenue Breakdown & KPI",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/revenue-breakdown2",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Symbol."
+          }
+        ]
+      },
+      "docs": "<p>Get standardized revenue breakdown and KPIs data for 30,000+ global companies.</p>"
+    },
+    {
+      "info": {
+        "name": "Newsroom",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/stock/newsroom",
+        "params": [
+          {
+            "name": "symbol",
+            "value": "",
+            "type": "query",
+            "description": "Company symbol."
+          },
+          {
+            "name": "from",
+            "value": "",
+            "type": "query",
+            "description": "From time: 2025-01-01."
+          },
+          {
+            "name": "to",
+            "value": "",
+            "type": "query",
+            "description": "To time: 2026-01-05."
+          }
+        ]
+      },
+      "docs": "<p>Get latest articles posted directly on the companies' newsroom and investor relations page. Newsroom API along with the Press Releases API provide a comprehensive text-based dataset directly from the company. We currently cover 1,250 US Companies with this dataset.</p>"
+    },
+    {
+      "info": {
+        "name": "AI Copilot",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/ai-chat"
+      },
+      "docs": "<p>Chat with our AI copilot trained on the extensive Finnhub's global data. You can ask it any finance-related questions just like with other LLM models and receive results in texts and widgets.</p>"
+    },
+    {
+      "info": {
+        "name": "Global Filings Search",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/global-filings/search"
+      },
+      "docs": "<p>Search for best-matched filings across global companies' filings, transcripts and press releases. You can filter by anything from symbol, ISIN to form type, and document sources.</p><p>This endpoint will return a list of documents that match your search criteria. If you would like to get the excerpts as well, please set <code>highlighted</code> to <code>true</code>. Once you have the list of documents, you can get a list of excerpts and positions to highlight the document using the <code>/sea"
+    },
+    {
+      "info": {
+        "name": "Search In Filing",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/global-filings/search-in-filing"
+      },
+      "docs": "<p>Get a list of excerpts and highlight positions within a document using your query.</p>"
+    },
+    {
+      "info": {
+        "name": "Search Filter",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/global-filings/filter",
+        "params": [
+          {
+            "name": "field",
+            "value": "",
+            "type": "query",
+            "description": "Field to get available filters. Available filters are \"countries\", \"exchanges\", \"exhibits\", \"forms\", \"gics\", \"naics\", \"caps\", \"acts\", and \"sort\"."
+          },
+          {
+            "name": "source",
+            "value": "",
+            "type": "query",
+            "description": "Get available forms for each source."
+          }
+        ]
+      },
+      "docs": "<p>Get available values for each filter in search body.</p>"
+    },
+    {
+      "info": {
+        "name": "Download Filings",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/global-filings/download",
+        "params": [
+          {
+            "name": "documentId",
+            "value": "",
+            "type": "query",
+            "description": "Document's id. Note that this is different from filingId as 1 filing can contain multiple documents."
+          }
+        ]
+      },
+      "docs": "<p>Download filings using document ids.</p>"
+    }
+  ],
+  "bundled": true
+}

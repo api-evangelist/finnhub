@@ -109,6 +109,16 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/finnhub-stock-api-openapi.yml
+- aid: finnhub:finnhub-default-api
+  name: Finnhub Default API
+  description: The Default API from Finnhub — 117 operation(s) for default.
+  humanURL: https://finnhub.io/docs/api
+  baseURL: https://finnhub.io/api/v1
+  tags:
+  - Default
+  properties:
+  - type: OpenAPI
+    url: openapi/finnhub-default-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/finnhub-agentic-access.yml

@@ -126,7 +126,8 @@ apis:
   description: The Default API from Finnhub — 117 operation(s) for default.
   humanURL: https://finnhub.io/docs/api
   baseURL: https://finnhub.io/api/v1
-  tags:
+  tags: []
+  tags_raw:
   - Default
   properties:
   - type: OpenAPI

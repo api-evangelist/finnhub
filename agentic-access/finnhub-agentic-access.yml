@@ -1,20 +1,22 @@
-generated: '2026-07-15'
+generated: '2026-09-16'
 method: generated
-source: openapi/finnhub-openapi.yml
+source: openapi/finnhub-default-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
-  operations: 15
+  operations: 117
   by_action_class:
-    connected: 15
+    connected: 114
+    acting: 3
   by_consequence:
-    read: 15
+    read: 114
+    write: 3
   human_in_the_loop_required: 0
 operations:
 - path: /search
   method: get
-  operationId: symbolSearch
+  operationId: symbol-search
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -24,7 +26,487 @@ operations:
     audit: none
 - path: /stock/symbol
   method: get
-  operationId: stockSymbols
+  operationId: stock-symbols
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/market-status
+  method: get
+  operationId: market-status
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/market-holiday
+  method: get
+  operationId: market-holiday
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/profile
+  method: get
+  operationId: company-profile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/profile2
+  method: get
+  operationId: company-profile2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/executive
+  method: get
+  operationId: company-executive
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /news
+  method: get
+  operationId: market-news
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /company-news
+  method: get
+  operationId: company-news
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /press-releases
+  method: get
+  operationId: press-releases
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /news-sentiment
+  method: get
+  operationId: news-sentiment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/peers
+  method: get
+  operationId: company-peers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/metric
+  method: get
+  operationId: company-basic-financials
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/price-metric
+  method: get
+  operationId: price-metrics
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ca/symbol-change
+  method: get
+  operationId: symbol-change
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ca/isin-change
+  method: get
+  operationId: isin-change
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/historical-market-cap
+  method: get
+  operationId: historical-market-cap
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/historical-employee-count
+  method: get
+  operationId: historical-employee-count
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /institutional/profile
+  method: get
+  operationId: institutional-profile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /institutional/portfolio
+  method: get
+  operationId: institutional-portfolio
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /institutional/ownership
+  method: get
+  operationId: institutional-ownership
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/ownership
+  method: get
+  operationId: ownership
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/fund-ownership
+  method: get
+  operationId: fund-ownership
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/insider-transactions
+  method: get
+  operationId: insider-transactions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/insider-sentiment
+  method: get
+  operationId: insider-sentiment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/financials
+  method: get
+  operationId: financials
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/financials-reported
+  method: get
+  operationId: financials-reported
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/revenue-breakdown
+  method: get
+  operationId: revenue-breakdown
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/filings
+  method: get
+  operationId: filings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/filings-sentiment
+  method: get
+  operationId: filings-sentiment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/similarity-index
+  method: get
+  operationId: similarity-index
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /calendar/ipo
+  method: get
+  operationId: ipo-calendar
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sector/metrics
+  method: get
+  operationId: sector-metric
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/dividend
+  method: get
+  operationId: stock-dividends
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/recommendation
+  method: get
+  operationId: recommendation-trends
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/price-target
+  method: get
+  operationId: price-target
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/upgrade-downgrade
+  method: get
+  operationId: upgrade-downgrade
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/revenue-estimate
+  method: get
+  operationId: company-revenue-estimates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/ebitda-estimate
+  method: get
+  operationId: company-ebitda-estimates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/ebit-estimate
+  method: get
+  operationId: company-ebit-estimates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/net-income-estimate
+  method: get
+  operationId: company-net-income-estimates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/pretax-income-estimate
+  method: get
+  operationId: company-pretax-income-estimates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/gross-income-estimate
+  method: get
+  operationId: company-gross-income-estimates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/dps-estimate
+  method: get
+  operationId: company-dps-estimates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/fcf-estimate
+  method: get
+  operationId: company-fcf-estimates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/capex-estimate
+  method: get
+  operationId: company-capex-estimates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/ocf-estimate
+  method: get
+  operationId: company-ocf-estimates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/eps-estimate
+  method: get
+  operationId: company-eps-estimates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/earnings
+  method: get
+  operationId: company-earnings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /calendar/earnings
+  method: get
+  operationId: earnings-calendar
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -42,39 +524,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /stock/profile2
-  method: get
-  operationId: companyProfile2
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /company-news
-  method: get
-  operationId: companyNews
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /news
-  method: get
-  operationId: marketNews
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /stock/candle
   method: get
-  operationId: stockCandles
+  operationId: stock-candles
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -82,9 +534,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /stock/recommendation
+- path: /stock/tick
   method: get
-  operationId: recommendationTrends
+  operationId: stock-tick
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -92,9 +544,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /stock/peers
+- path: /stock/bbo
   method: get
-  operationId: peers
+  operationId: stock-nbbo
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -102,9 +554,159 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /forex/symbol
+- path: /stock/bidask
   method: get
-  operationId: forexSymbols
+  operationId: stock-bidask
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/split
+  method: get
+  operationId: stock-splits
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/dividend2
+  method: get
+  operationId: stock-basic-dividends
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /index/constituents
+  method: get
+  operationId: indices-constituents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /index/historical-constituents
+  method: get
+  operationId: indices-historical-constituents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /etf/profile
+  method: get
+  operationId: etfs-profile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /etf/holdings
+  method: get
+  operationId: etfs-holdings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /etf/sector
+  method: get
+  operationId: etfs-sector-exposure
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /etf/country
+  method: get
+  operationId: etfs-country-exposure
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /etf/allocation
+  method: get
+  operationId: etfs-allocation
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /mutual-fund/profile
+  method: get
+  operationId: mutual-fund-profile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /mutual-fund/holdings
+  method: get
+  operationId: mutual-fund-holdings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /mutual-fund/sector
+  method: get
+  operationId: mutual-fund-sector-exposure
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /mutual-fund/country
+  method: get
+  operationId: mutual-fund-country-exposure
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /mutual-fund/eet
+  method: get
+  operationId: mutual-fund-eet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /mutual-fund/eet-pai
+  method: get
+  operationId: mutual-fund-eet-pai
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -114,7 +716,17 @@ operations:
     audit: none
 - path: /forex/exchange
   method: get
-  operationId: forexExchanges
+  operationId: forex-exchanges
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /forex/symbol
+  method: get
+  operationId: forex-symbols
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -124,7 +736,17 @@ operations:
     audit: none
 - path: /forex/candle
   method: get
-  operationId: forexCandles
+  operationId: forex-candles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /forex/rates
+  method: get
+  operationId: forex-rates
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -134,7 +756,7 @@ operations:
     audit: none
 - path: /crypto/exchange
   method: get
-  operationId: cryptoExchanges
+  operationId: crypto-exchanges
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -144,7 +766,17 @@ operations:
     audit: none
 - path: /crypto/symbol
   method: get
-  operationId: cryptoSymbols
+  operationId: crypto-symbols
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /crypto/profile
+  method: get
+  operationId: crypto-profile
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -154,7 +786,415 @@ operations:
     audit: none
 - path: /crypto/candle
   method: get
-  operationId: cryptoCandles
+  operationId: crypto-candles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /scan/pattern
+  method: get
+  operationId: pattern-recognition
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /scan/support-resistance
+  method: get
+  operationId: support-resistance
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /scan/technical-indicator
+  method: get
+  operationId: aggregate-indicator
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /indicator
+  method: get
+  operationId: technical-indicator
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/transcripts/list
+  method: get
+  operationId: transcripts-list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/transcripts
+  method: get
+  operationId: transcripts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/earnings-call-live
+  method: get
+  operationId: earnings-call-live
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/presentation
+  method: get
+  operationId: stock-presentation
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/social-sentiment
+  method: get
+  operationId: social-sentiment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/investment-theme
+  method: get
+  operationId: investment-themes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/supply-chain
+  method: get
+  operationId: supply-chain-relationships
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/esg
+  method: get
+  operationId: company-esg-score
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/historical-esg
+  method: get
+  operationId: company-historical-esg-score
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/earnings-quality-score
+  method: get
+  operationId: company-earnings-quality-score
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /covid19/us
+  method: get
+  operationId: covid-19
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fda-advisory-committee-calendar
+  method: get
+  operationId: fda-committee-meeting-calendar
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/uspto-patent
+  method: get
+  operationId: stock-uspto-patent
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/visa-application
+  method: get
+  operationId: stock-visa-application
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/lobbying
+  method: get
+  operationId: stock-lobbying
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/usa-spending
+  method: get
+  operationId: stock-usa-spending
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/congressional-trading
+  method: get
+  operationId: congressional-trading
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /bond/profile
+  method: get
+  operationId: bond-profile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /bond/price
+  method: get
+  operationId: bond-price
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /bond/tick
+  method: get
+  operationId: bond-tick
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /bond/yield-curve
+  method: get
+  operationId: bond-yield-curve
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /bank-branch
+  method: get
+  operationId: bank-branch
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /airline/price-index
+  method: get
+  operationId: airline-price-index
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /country
+  method: get
+  operationId: country
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /calendar/economic
+  method: get
+  operationId: economic-calendar
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /economic/code
+  method: get
+  operationId: economic-code
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /economic
+  method: get
+  operationId: economic-data
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/international-filings
+  method: get
+  operationId: international-filings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/revenue-breakdown2
+  method: get
+  operationId: revenue-breakdown2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stock/newsroom
+  method: get
+  operationId: newsroom
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ai-chat
+  method: post
+  operationId: ai-chat
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /global-filings/search
+  method: post
+  operationId: global-filings-search
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /global-filings/search-in-filing
+  method: post
+  operationId: search-in-filing
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /global-filings/filter
+  method: get
+  operationId: global-filings-search-filter
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /global-filings/download
+  method: get
+  operationId: global-filings-download
   x-agentic-access:
     action-class: connected
     consequence: read

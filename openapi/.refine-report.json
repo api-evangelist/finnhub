@@ -1,26 +1,23 @@
 {
   "provider": "finnhub",
   "sources": [
-    "finnhub-company-news-api-openapi.yml",
-    "finnhub-crypto-api-openapi.yml",
-    "finnhub-forex-api-openapi.yml",
-    "finnhub-news-api-openapi.yml",
-    "finnhub-quote-api-openapi.yml",
-    "finnhub-search-api-openapi.yml",
-    "finnhub-stock-api-openapi.yml"
+    "_original/finnhub-swagger-original.json"
   ],
   "outputs": [
-    "finnhub-company-news-api-openapi.yml",
-    "finnhub-crypto-api-openapi.yml",
-    "finnhub-forex-api-openapi.yml",
-    "finnhub-news-api-openapi.yml",
-    "finnhub-quote-api-openapi.yml",
-    "finnhub-search-api-openapi.yml",
-    "finnhub-stock-api-openapi.yml"
+    "finnhub-default-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "1 archived document(s) dropped as subsets of other archived documents",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "finnhub-swagger-original.json: upgraded swagger 2.0 -> OpenAPI 3.2.0; renamed 1 component key(s) illegal in 3.x (e.g. Economic event)",
+    "finnhub-swagger-original.json: declared missing tag: Default",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "_original/finnhub-openapi.yml: archived document superseded by a larger archived document",
+    "finnhub-default-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

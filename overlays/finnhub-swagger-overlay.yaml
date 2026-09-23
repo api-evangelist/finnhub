@@ -2,7 +2,7 @@ overlay: 1.0.0
 info:
   title: API Evangelist enhancements for the Finnhub API
   version: 1.0.0
-  description: >-
+  x-description: >-
     Overlay of API Evangelist enhancements to Finnhub's official Swagger 2.0
     specification (harvested verbatim from https://finnhub.io/static/swagger.json).
     The original spec is never mutated; these actions annotate it with catalog

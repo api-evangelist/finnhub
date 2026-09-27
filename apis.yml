@@ -36,6 +36,17 @@ created: '2025-02-08'
 modified: '2026-09-16'
 position: Consuming
 tags:
+- Finance
+- Market Data
+- Stocks
+- Forex
+- Cryptocurrency
+- Fundamentals
+- News
+- WebSocket
+- Real-Time
+- Financial Data
+tags_raw:
 - Financial
 - Market Data
 - Stocks
@@ -44,6 +55,8 @@ tags:
 - Fundamentals
 - News
 - WebSocket
+- Real-Time
+- Financial Data
 url: https://raw.githubusercontent.com/api-evangelist/finnhub/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 apis:

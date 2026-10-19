@@ -59,3 +59,95 @@
     builder: unknown (community connector; contributor not in the record)
   status: not-a-workflow
   arazzo: null
+- slug: finnhub-go-module-proxy
+  label: Go module proxy
+  partner_name: Go module proxy
+  category: official SDK (Go)
+  type: register
+  channel: package-registry
+  evidence: https://pkg.go.dev/github.com/Finnhub-Stock-API/finnhub-go/v2
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Go module proxy (public registry JSON)
+    spec_file: null
+    language: Go
+    packages:
+    - name: github.com/Finnhub-Stock-API/finnhub-go/v2
+      version: v2.0.24
+      released: '2026-06-22'
+      released_field: Time
+      lapsed: false
+      page: https://pkg.go.dev/github.com/Finnhub-Stock-API/finnhub-go/v2
+      repo_leg: github-org:finnhub-stock-api
+      publisher_leg: org:finnhub-stock-api
+      matched_by: github-org
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: finnhub-pypi
+  label: PyPI
+  partner: pypi
+  partner_name: PyPI
+  category: official SDK (Python)
+  type: register
+  channel: package-registry
+  evidence: https://pypi.org/project/finnhub-python/
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: PyPI (public registry JSON)
+    spec_file: null
+    language: Python
+    packages:
+    - name: finnhub-python
+      version: 2.4.29
+      released: '2026-06-24'
+      released_field: upload_time
+      lapsed: false
+      page: https://pypi.org/project/finnhub-python/
+      repo_leg: domain:finnhub.io
+      publisher_leg: email:finnhub.io
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: finnhub-rubygems
+  label: RubyGems
+  partner: rubygems
+  partner_name: RubyGems
+  category: official SDK (Ruby)
+  type: register
+  channel: package-registry
+  evidence: https://rubygems.org/gems/finnhub_ruby
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: RubyGems (public registry JSON)
+    spec_file: null
+    language: Ruby
+    packages:
+    - name: finnhub_ruby
+      version: 2.0.6
+      released: '2026-04-21'
+      released_field: version_created_at
+      lapsed: false
+      page: https://rubygems.org/gems/finnhub_ruby
+      repo_leg: github-org:finnhub-stock-api
+      publisher_leg: org:finnhub
+      matched_by: github-org
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null

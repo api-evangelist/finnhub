@@ -72,6 +72,8 @@ apis:
   - type: OpenAPI
     url: openapi/finnhub-default-api-openapi.yml
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/finnhub/overview
 - type: AgenticAccess
   url: agentic-access/finnhub-agentic-access.yml
 - type: DomainSecurity

@@ -1,0 +1,63 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-28'
+method: searched
+source: https://finnhub.io/pricing
+sources:
+- https://finnhub.io/pricing
+provenance:
+  tool: engine/economics/harvest_pricing.py
+  run: 20261028T161713
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: tiered-subscription
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-28'
+published: true
+note: Two-column comparison table; Free plan $0/month and All-In-One $3500/month with 'Contact Us' button.
+  Footnotes note LSE 15-minute delay and transcripts excluded.
+plan_count: 2
+currency: USD
+plans:
+- name: Free
+  price_text: $0/month
+  price: 0
+  currency: USD
+  period: month
+  included_quota: Personal Use. Terms apply; US fundamental/market data coverage
+- name: All-In-One
+  price_text: $3500/month
+  price: 3500
+  currency: USD
+  period: month
+  included_quota: Global coverage; billing frequency annually; All-in-One plan doesn't include access
+    to Earnings call transcripts
+rate_limit_statements:
+- 60 API calls/minute
+- 'Market data: 900 API calls/minute'
+- 'Fundamental: 300 API calls/minute'
+- Websocket 50 symbols
+- Unlimited symbols
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - free
+  - subscription
+  units: []
+  plans:
+  - name: Free
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: All-In-One
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
